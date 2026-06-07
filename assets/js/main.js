@@ -151,17 +151,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const loadVideo = () => {
       clearVideo();
-      const iframe = document.createElement("iframe");
-      iframe.width = "800";
-      iframe.height = "450";
-      iframe.src = "https://www.youtube.com/embed/L5P1fAe6BsQ";
-      iframe.setAttribute("frameborder", "0");
-      iframe.setAttribute(
-        "allow",
-        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      );
-      iframe.setAttribute("allowfullscreen", "");
-      videoContainer.appendChild(iframe);
+      const video = document.createElement("video");
+      video.controls = true;
+      video.autoplay = true;
+      video.playsInline = true;
+      video.src = "assets/images/folly-beach/folly-beach-loop.mp4";
+      videoContainer.appendChild(video);
+      video.play().catch(() => {});
     };
 
     viewDemoBtn.addEventListener("click", (e) => {

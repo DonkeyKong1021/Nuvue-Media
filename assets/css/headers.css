@@ -298,13 +298,13 @@ nav {
 @media screen and (max-width: 768px) {
     .secondary-header {
         min-height: auto;
-        padding: max(env(safe-area-inset-top), 8px) 16px 0;
+        padding: max(env(safe-area-inset-top), 10px) 16px 0;
     }
 
     .header-content {
         min-height: auto;
-        padding: 8px 4px;
-        gap: 8px;
+        padding: 12px 8px;
+        gap: 10px;
     }
 
     .logo {
@@ -315,8 +315,8 @@ nav {
     .logo img,
     .logo .logo-video,
     .logo .logo-fallback {
-        height: 44px;
-        max-width: min(180px, 50vw);
+        height: 64px;
+        max-width: min(260px, 72vw);
     }
 
     .hamburger {
@@ -474,12 +474,12 @@ nav {
     .logo img,
     .logo .logo-video,
     .logo .logo-fallback {
-        height: 38px;
-        max-width: min(160px, 48vw);
+        height: 56px;
+        max-width: min(230px, 68vw);
     }
 
     .header-content {
-        padding: 6px 2px;
+        padding: 10px 6px;
     }
 }
 

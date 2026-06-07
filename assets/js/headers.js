@@ -23,8 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
     portalAnchor.href = headerContactLink.getAttribute("href") || "portal.html";
     portalAnchor.textContent = headerContactLink.textContent.trim() || "Client Portal";
     portalItem.appendChild(portalAnchor);
-    navLinks.appendChild(portalItem);
+    navLinks.insertBefore(portalItem, navLinks.firstChild);
   }
+
+  const MOBILE_NAV_QUERY = window.matchMedia("(max-width: 1100px)");
+  const isMobileNav = () => MOBILE_NAV_QUERY.matches;
 
   if (hamburger && navLinks) {
     const closeMenu = () => {
@@ -48,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     window.addEventListener("resize", () => {
-      if (window.innerWidth > 768) closeMenu();
+      if (!isMobileNav()) closeMenu();
     });
   }
 
@@ -58,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!dropdownToggle) return;
 
     dropdownToggle.addEventListener("click", (e) => {
-      if (window.innerWidth > 768) return;
+      if (!isMobileNav()) return;
       e.preventDefault();
       dropdownItems.forEach((item) => {
         if (item !== dropdown) item.classList.remove("active");

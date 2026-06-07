@@ -143,83 +143,101 @@
 
 /* Services Preview Section */
 .services-preview {
-    padding: 80px 0;
-    background-color: var(--bg-light);
+    padding: 72px 0 80px;
+    background-color: #f5f7fa;
 }
 
-.services-preview h2 {
+.services-preview-inner {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.services-preview-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.services-preview h2,
+.services-preview .section-title {
     color: var(--dark-color);
     font-size: 2.5rem;
-    margin-bottom: var(--spacing-sm);
-    position: relative;
+    margin-bottom: 0;
 }
 
-.services-preview h2:after {
+.services-preview h2::after,
+.services-preview .section-title::after {
     content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
+    display: block;
+    width: 60px;
     height: 3px;
     background-color: var(--primary-color);
+    margin: 0.75rem auto 0;
+    position: static;
+    transform: none;
 }
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
 }
 
 .service-card {
-    background-color: var(--white);
-    border-radius: 10px;
-    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 32px 28px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
 }
 
 .service-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 20px;
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 18px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 32px;
-    color: var(--white);
+    font-size: 28px;
+    color: #fff;
+    flex-shrink: 0;
 }
 
 .service-card h3 {
-    font-size: 20px;
-    margin-bottom: 15px;
+    font-size: 1.25rem;
+    margin-bottom: 12px;
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--dark-color);
 }
 
 .service-card p {
-    font-size: 15px;
-    color: var(--text-medium);
+    font-size: 0.95rem;
+    color: var(--text-color);
     margin-bottom: 20px;
     line-height: 1.6;
+    flex: 1;
 }
 
 .service-link {
     display: inline-block;
-    color: var(--primary);
+    color: var(--primary-color);
     font-weight: 500;
     text-decoration: none;
     position: relative;
     transition: color 0.3s ease;
+    margin-top: auto;
 }
 
 .service-link:after {
@@ -229,7 +247,7 @@
     height: 2px;
     bottom: -5px;
     left: 0;
-    background-color: var(--primary);
+    background-color: var(--primary-color);
     transform: scaleX(0);
     transform-origin: bottom right;
     transition: transform 0.3s ease;
@@ -473,7 +491,7 @@
     }
 
     .hero-content {
-        padding: 104px 16px 60px;
+        padding: 112px 16px 60px;
         gap: 0.75rem;
         justify-content: center;
     }
@@ -518,32 +536,35 @@
     }
 
     .services-preview {
-        padding: 48px 16px;
+        padding: 48px 0 56px;
+    }
+
+    .services-preview-inner {
+        padding: 0 1rem;
+    }
+
+    .services-preview-header {
+        margin-bottom: 2rem;
     }
 
     .services-preview h2,
-    .section-title {
+    .services-preview .section-title {
         font-size: 2rem;
     }
 
     .services-grid {
+        grid-template-columns: 1fr;
         gap: 20px;
-        margin-top: 28px;
     }
 
     .service-card {
         padding: 24px 20px;
     }
-
-    .about-container {
-        margin: 12px;
-        padding: 16px;
-    }
 }
 
 @media screen and (max-width: 480px) {
     .hero-content {
-        padding: 96px 14px 52px;
+        padding: 104px 14px 52px;
     }
 
     .hero-content h1 {
@@ -555,7 +576,7 @@
     }
 
     .services-preview h2,
-    .section-title {
+    .services-preview .section-title {
         font-size: 1.75rem;
     }
 }

@@ -298,26 +298,28 @@ nav {
 @media screen and (max-width: 768px) {
     .secondary-header {
         min-height: auto;
-        padding: max(env(safe-area-inset-top), 10px) 16px 0;
+        padding: max(env(safe-area-inset-top), 12px) 20px 10px;
     }
 
     .header-content {
         min-height: auto;
-        padding: 14px 12px;
-        gap: 24px;
+        padding: 18px 16px;
+        gap: 36px;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .logo {
-        flex: 1;
+        flex: 0 1 auto;
         min-width: 0;
-        margin-right: 8px;
+        margin-right: 12px;
     }
 
     .logo img,
     .logo .logo-video,
     .logo .logo-fallback {
         height: 80px;
-        max-width: min(320px, 82vw);
+        max-width: min(280px, calc(100vw - 120px));
     }
 
     .hamburger {
@@ -350,7 +352,8 @@ nav {
     nav {
         justify-content: flex-end;
         flex: 0 0 auto;
-        margin-left: 12px;
+        margin-left: 16px;
+        padding-left: 4px;
     }
     
     .nav-links {
@@ -473,15 +476,20 @@ nav {
 }
 
 @media screen and (max-width: 480px) {
+    .secondary-header {
+        padding: max(env(safe-area-inset-top), 10px) 16px 8px;
+    }
+
     .logo img,
     .logo .logo-video,
     .logo .logo-fallback {
         height: 72px;
-        max-width: min(290px, 80vw);
+        max-width: min(260px, calc(100vw - 108px));
     }
 
     .header-content {
-        padding: 12px 8px;
+        padding: 16px 12px;
+        gap: 28px;
     }
 }
 

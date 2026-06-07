@@ -113,6 +113,7 @@ nav {
     justify-content: center;
     align-items: center;
     margin-right: 0;
+    min-width: 0;
 }
 
 .nav-links {
@@ -179,6 +180,40 @@ nav {
 .header-contact {
     margin-left: 30px;
     margin-right: 0;
+    flex-shrink: 0;
+}
+
+.header-contact .cta-button-main {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    text-decoration: none;
+    flex-shrink: 0;
+    background-color: #00BFFF;
+    color: #fff !important;
+    padding: 8px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.2;
+    border-radius: 4px;
+    border: none;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: visible;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.header-contact .cta-button-main::after {
+    display: none;
+}
+
+.header-contact .cta-button-main:hover {
+    background-color: #0099CC;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 155, 255, 0.3);
+    color: #fff !important;
 }
 
 .header-contact a.cta-button,
@@ -272,6 +307,40 @@ nav {
 }
 
 /* ===== Responsive Styles ===== */
+@media screen and (max-width: 1100px) {
+    .secondary-header {
+        padding: 0 20px;
+    }
+
+    .header-content {
+        padding: 20px 16px;
+    }
+
+    .logo img,
+    .logo .logo-video,
+    .logo .logo-fallback {
+        height: 88px;
+        max-width: min(320px, 42vw);
+    }
+
+    .secondary-header .nav-links {
+        gap: 16px;
+    }
+
+    .secondary-header .nav-links a {
+        font-size: 1rem;
+    }
+
+    .header-contact {
+        margin-left: 16px;
+    }
+
+    .header-contact .cta-button-main {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+}
+
 @media screen and (max-width: 1024px) {
     .secondary-header {
         min-height: 150px;
@@ -295,7 +364,7 @@ nav {
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
     .secondary-header {
         min-height: auto;
         padding: max(env(safe-area-inset-top), 12px) 20px 10px;

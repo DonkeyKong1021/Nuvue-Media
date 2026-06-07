@@ -153,6 +153,10 @@ img {
   .cta-button-main:hover::after {
     transform: scaleX(1);
   }
+
+.header-contact .cta-button-main::after {
+  display: none;
+}
   
 .cta-button {
     display: inline-block;

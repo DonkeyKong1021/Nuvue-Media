@@ -90,14 +90,12 @@ const LEGAL_CONTENT = {
 function initLegalModals() {
   if (document.getElementById("legalModal")) return;
 
-  const modal = document.createElement("div");
+  const modal = document.createElement("dialog");
   modal.className = "legal-modal";
   modal.id = "legalModal";
-  modal.setAttribute("role", "dialog");
-  modal.setAttribute("aria-modal", "true");
-  modal.setAttribute("aria-hidden", "true");
+  modal.setAttribute("aria-labelledby", "legalModalTitle");
   modal.innerHTML = `
-    <div class="legal-modal-panel" role="document">
+    <div class="legal-modal-panel">
       <button type="button" class="legal-modal-close" aria-label="Close">&times;</button>
       <h2 class="legal-modal-title" id="legalModalTitle"></h2>
       <div class="legal-modal-body" id="legalModalBody"></div>
@@ -118,9 +116,9 @@ function initLegalModals() {
   };
 
   const closeModal = () => {
-    modal.classList.remove("active");
-    modal.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("legal-modal-open");
+    if (modal.open) {
+      modal.close();
+    }
     if (lastFocusedElement instanceof HTMLElement) {
       lastFocusedElement.focus();
     }
@@ -134,9 +132,13 @@ function initLegalModals() {
     titleEl.textContent = content.title;
     bodyEl.innerHTML = content.body;
     setYearInBody();
-    modal.classList.add("active");
-    modal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("legal-modal-open");
+
+    if (typeof modal.showModal === "function") {
+      modal.showModal();
+    } else {
+      modal.setAttribute("open", "");
+    }
+
     closeBtn.focus();
   };
 
@@ -150,14 +152,26 @@ function initLegalModals() {
   closeBtn.addEventListener("click", closeModal);
 
   modal.addEventListener("click", (event) => {
-    if (event.target === modal) closeModal();
+    const panel = modal.querySelector(".legal-modal-panel");
+    if (panel && !panel.contains(event.target)) {
+      closeModal();
+    }
   });
 
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && modal.classList.contains("active")) {
-      closeModal();
+  modal.addEventListener("cancel", (event) => {
+    event.preventDefault();
+    closeModal();
+  });
+
+  modal.addEventListener("close", () => {
+    if (lastFocusedElement instanceof HTMLElement) {
+      lastFocusedElement.focus();
     }
   });
 }
 
-document.addEventListener("DOMContentLoaded", initLegalModals);
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initLegalModals);
+} else {
+  initLegalModals();
+}

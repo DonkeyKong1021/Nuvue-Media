@@ -303,20 +303,21 @@ nav {
 
     .header-content {
         min-height: auto;
-        padding: 12px 8px;
-        gap: 10px;
+        padding: 14px 12px;
+        gap: 24px;
     }
 
     .logo {
         flex: 1;
         min-width: 0;
+        margin-right: 8px;
     }
 
     .logo img,
     .logo .logo-video,
     .logo .logo-fallback {
-        height: 64px;
-        max-width: min(260px, 72vw);
+        height: 80px;
+        max-width: min(320px, 82vw);
     }
 
     .hamburger {
@@ -330,7 +331,7 @@ nav {
         justify-content: space-between;
         align-items: center;
         padding: 12px 10px;
-        margin-right: -6px;
+        margin-right: 0;
     }
 
     .hamburger span {
@@ -349,6 +350,7 @@ nav {
     nav {
         justify-content: flex-end;
         flex: 0 0 auto;
+        margin-left: 12px;
     }
     
     .nav-links {
@@ -474,12 +476,12 @@ nav {
     .logo img,
     .logo .logo-video,
     .logo .logo-fallback {
-        height: 56px;
-        max-width: min(230px, 68vw);
+        height: 72px;
+        max-width: min(290px, 80vw);
     }
 
     .header-content {
-        padding: 10px 6px;
+        padding: 12px 8px;
     }
 }
 

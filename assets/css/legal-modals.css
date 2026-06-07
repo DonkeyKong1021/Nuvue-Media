@@ -1,0 +1,105 @@
+/* Legal policy popups */
+.legal-modal {
+    border: none;
+    padding: 0;
+    margin: 0;
+    width: min(720px, calc(100vw - 40px));
+    max-width: none;
+    max-height: none;
+    background: transparent;
+    overflow: visible;
+}
+
+.legal-modal::backdrop {
+    background: rgba(0, 0, 0, 0.78);
+}
+
+.legal-modal-panel {
+    position: relative;
+    width: 100%;
+    max-height: min(85vh, 800px);
+    background: #fff;
+    color: #333;
+    border-radius: 8px;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+    padding: 28px 24px 24px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.legal-modal-title {
+    margin: 0 40px 16px 0;
+    font-size: 1.5rem;
+    color: #111;
+}
+
+.legal-modal-body {
+    overflow-y: auto;
+    padding-right: 6px;
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+.legal-modal-body h3 {
+    font-size: 1.05rem;
+    margin: 1.25rem 0 0.5rem;
+    color: #222;
+}
+
+.legal-modal-body p,
+.legal-modal-body ul {
+    margin-bottom: 0.85rem;
+}
+
+.legal-modal-body ul {
+    padding-left: 1.25rem;
+    list-style: disc;
+}
+
+.legal-modal-body li {
+    margin-bottom: 0.35rem;
+}
+
+.legal-modal-body a {
+    color: var(--primary-color, #3498db);
+}
+
+.legal-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: #f0f0f0;
+    color: #333;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.legal-modal-close:hover {
+    background: #e0e0e0;
+}
+
+@media screen and (max-width: 576px) {
+    .legal-modal {
+        width: 100vw;
+        max-width: 100vw;
+        margin: auto 0 0;
+    }
+
+    .legal-modal-panel {
+        max-height: 92vh;
+        padding: 22px 18px 18px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .legal-modal-title {
+        font-size: 1.25rem;
+    }
+}

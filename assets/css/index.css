@@ -473,7 +473,7 @@
     }
 
     .hero-content {
-        padding: 88px 16px 60px;
+        padding: 104px 16px 60px;
         gap: 0.75rem;
         justify-content: center;
     }
@@ -543,7 +543,7 @@
 
 @media screen and (max-width: 480px) {
     .hero-content {
-        padding: 80px 14px 52px;
+        padding: 96px 14px 52px;
     }
 
     .hero-content h1 {

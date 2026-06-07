@@ -2,7 +2,7 @@
 .legal-modal {
     border: none;
     padding: 0;
-    margin: 0;
+    margin: auto;
     width: min(720px, calc(100vw - 40px));
     max-width: none;
     max-height: none;
@@ -12,6 +12,17 @@
 
 .legal-modal::backdrop {
     background: rgba(0, 0, 0, 0.78);
+}
+
+@media screen and (min-width: 577px) {
+    .legal-modal {
+        position: fixed;
+        inset: 0;
+        width: min(720px, calc(100vw - 40px));
+        height: fit-content;
+        max-height: min(85vh, 800px);
+        margin: auto;
+    }
 }
 
 .legal-modal-panel {

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | NuVue Media LLC</title>
+    <meta name="description" content="Get in touch with NuVue Media LLC for professional drone photography and 360° virtual tour services.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/btn-98.css">
+    <link rel="icon" href="assets/images/nuvue-logos/nuvue-transparent-black.png">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Link to the header CSS -->
+    <link rel="stylesheet" href="assets/css/headers.css">
+    <!-- Link to the contact page specific CSS -->
+    <link rel="stylesheet" href="assets/css/contact.css">
+    <!-- Adding custom form validation & submission script -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css">
+</head>
+<body>
+    <header class="secondary-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html" aria-label="NuVue Media LLC home">
+                        <img src="assets/images/nuvue-logos/nuvue-header-white-web.png" alt="NuVue Media LLC Logo" height="128" width="393" decoding="async">
+                    </a>
+                </div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">Services <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="services/real-estate.html">Real Estate</a></li>
+                                <li><a href="services/events-weddings.html">Weddings & Events</a></li>
+                                <li><a href="services/commercial.html">Commercial</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                    </ul>
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </nav>
+                <div class="header-contact">
+                    <a href="portal.html" class="cta-button-main">Client Portal</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="page-hero page-hero--weddings">
+            <div class="page-hero-overlay"></div>
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1>Contact Us</h1>
+                    <p>Let's discuss your next aerial project</p>
+                </div>
+            </div>
+            <div class="page-hero-bottom"></div>
+            <div class="page-hero-scroll">
+                <a href="#page-hero-bottom" aria-label="Scroll to content">
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </div>
+        </section>
+        
+        <!-- Contact Form Section -->
+        <section id="page-hero-bottom" class="contact-page section-padding">
+            <div class="container">
+                <div class="contact-intro">
+                    <h2>Get In Touch</h2>
+                    <p>I'm ready to discuss how drone photography and videography can enhance your project. As a Richmond-based drone professional, I personally handle every aspect of your project.</p>
+                </div>
+                
+                <div class="contact-content">
+                    <!-- Direct contact info -->
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email</h3>
+                                <p><a href="mailto:prestigewwaerial@gmail.com">prestigewwaerial@gmail.com</a></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h3>Phone</h3>
+                                <p><a href="tel:8049559107">(804) 955-9107</a></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Location</h3>
+                                <p>Richmond, Virginia</p>
+                                <p class="service-area">Serving the Greater Richmond Area</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h3>Business Hours</h3>
+                                <p>Monday - Friday: 9am - 6pm</p>
+                                <p>Weekends: By appointment</p>
+                            </div>
+                        </div>
+                        
+                        <div class="social-contact">
+                            <h3>Connect With Me</h3>
+                            <div class="social-icons">
+                                <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                                <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact form -->
+                    <div class="contact-form">
+                        <h3>Send Me a Message</h3>
+                        <form id="contactForm" action="https://formspree.io/f/xzbnwadq" method="POST">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required placeholder="Your name">
+                                <div class="error-message" id="name-error"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required placeholder="Your email address">
+                                <div class="error-message" id="email-error"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone (optional)</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Interest</label>
+                                <select id="service" name="service" required>
+                                    <option value="" disabled selected>Select an option</option>
+                                    <option value="Real Estate">Real Estate</option>
+                                    <option value="Weddings & Events">Weddings & Events</option>
+                                    <option value="Commercial">Commercial</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <div class="error-message" id="service-error"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" required placeholder="Tell me about your project"></textarea>
+                                <div class="error-message" id="message-error"></div>
+                            </div>
+                            <button type="submit" class="cta-button">Send Message</button>
+                            <div id="form-status"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="map-section">
+            <div class="container">
+                <h3>Service Area: Richmond, Virginia</h3>
+                <p>Based in Richmond with service to the surrounding areas</p>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d101402.69214099117!2d-77.55401017070897!3d37.5407289732218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b111095799c9ed%3A0xbfd83e6de2423cc5!2sRichmond%2C%20VA!5e0!3m2!1sen!2sus!4v1646886902551!5m2!1sen!2sus" 
+                        width="100%" height="450" style="border:0; border-radius:8px;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+        
+        <!-- FAQ Section -->
+        <section class="faq-section section-padding alt-bg">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do I receive my final deliverables?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>All deliverables are provided through a secure digital download link. High-resolution images, virtual tours, and videos are optimized for both web use and printing. We retain backups of all client projects for 90 days after delivery.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What areas do you service?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>I primarily serve Richmond, Virginia and the surrounding areas. I'm also available for projects throughout Virginia and neighboring states (North Carolina, Maryland, West Virginia, Kentucky, Tennessee, and Washington DC). For projects beyond these areas, please contact me for availability and potential travel arrangements.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How quickly can I get my project completed?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Typical turnaround time is 2-3 business days for standard projects. Express delivery options are available for an additional fee. Complex projects or those requiring extensive editing may take longer. I'll always provide you with a clear timeline during our initial consultation.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What if the weather is bad on my scheduled shooting day?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Safety and quality are my top priorities. Virginia weather can be unpredictable, with summer thunderstorms and winter weather events. If conditions make flying unsafe or would compromise image quality, I'll work with you to reschedule at no additional cost. I monitor weather forecasts closely and will communicate with you 24-48 hours in advance if rescheduling appears necessary.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/images/nuvue-logos/nuvue-header-white-web.png" alt="NuVue Media LLC Logo" height="88" width="269" loading="lazy" decoding="async">
+                    <p>Elevating your vision with stunning aerial imagery and virtual tours.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-nav">
+                        <h3>Navigate</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="testimonials.html">Testimonials <span class="coming-soon-tag">Coming Soon</span></a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-contact">
+                        <h3>Contact Us</h3>
+                        <ul>
+                            <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                            <li><i class="fas fa-envelope"></i> info@prestigeww.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Richmond, VA</li>
+                        </ul>
+                    </div>
+                    <div class="footer-social">
+                        <h3>Follow Us</h3>
+                        <div class="social-icons">
+                            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 NuVue Media LLC. All rights reserved.</p>
+                <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/headers.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
+    <script src="assets/js/contact.js"></script>
+</body>
+</html> 

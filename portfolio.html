@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | NuVue Media LLC</title>
+    <meta name="description" content="Browse NuVue Media LLC aerial photography and videography — weddings, real estate, commercial, and scenic projects in Richmond, VA.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="icon" href="assets/images/nuvue-logos/nuvue-transparent-black.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/headers.css">
+    <link rel="stylesheet" href="assets/css/portfolio.css">
+</head>
+<body class="portfolio-page">
+    <header class="secondary-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html" aria-label="NuVue Media LLC home">
+                        <img src="assets/images/nuvue-logos/nuvue-header-white-web.png" alt="NuVue Media LLC Logo" height="128" width="393" decoding="async">
+                    </a>
+                </div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">Services <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="services/real-estate.html">Real Estate</a></li>
+                                <li><a href="services/events-weddings.html">Weddings & Events</a></li>
+                                <li><a href="services/commercial.html">Commercial</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                    </ul>
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </nav>
+                <div class="header-contact">
+                    <a href="portal.html" class="cta-button-main">Client Portal</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="portfolio-intro">
+            <div class="container">
+                <p class="portfolio-eyebrow">Our Work</p>
+                <h1>Portfolio</h1>
+                <p class="portfolio-lead">Aerial photography and videography across weddings, real estate, commercial, and scenic projects throughout Virginia and beyond.</p>
+                <div class="portfolio-stats" aria-label="Portfolio highlights">
+                    <div class="portfolio-stat"><strong>11</strong><span>Photos</span></div>
+                    <div class="portfolio-stat"><strong>2</strong><span>Demos</span></div>
+                    <div class="portfolio-stat"><strong>4</strong><span>Categories</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="portfolio-spotlight section-padding">
+            <div class="container">
+                <div class="section-header centered">
+                    <h2>Spotlight</h2>
+                    <p>Recent projects we're proud to showcase</p>
+                </div>
+                <div class="spotlight-grid">
+                    <article class="spotlight-card">
+                        <div class="spotlight-card-media">
+                            <img src="assets/images/weddings/wedding-venue.jpeg" alt="Aerial view of a wedding venue" width="800" height="500" loading="eager" decoding="async">
+                        </div>
+                        <div class="spotlight-card-body">
+                            <span class="spotlight-tag">Weddings & Events</span>
+                            <h3>Wedding Aerial Coverage</h3>
+                            <p>Venue reveals, valley landscapes, and wide establishing shots that capture the full scale of the celebration.</p>
+                            <div class="spotlight-actions">
+                                <a href="#" class="cta-button-secondary" id="weddingDemoBtn">Demo Video</a>
+                                <a href="services/events-weddings.html" class="cta-button">Wedding Services</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="spotlight-card">
+                        <div class="spotlight-card-media">
+                            <video muted loop playsinline preload="none" poster="assets/images/folly-beach/folly-beach.jpeg" data-preview data-src="assets/images/folly-beach/Folly-Beach-lightning.mp4" aria-label="Folly Beach lightning preview"></video>
+                            <span class="spotlight-play-badge">Video</span>
+                        </div>
+                        <div class="spotlight-card-body">
+                            <span class="spotlight-tag">Commercial</span>
+                            <h3>Folly Beach Lightning</h3>
+                            <p>Coastal aerial cinematography capturing dramatic lightning over the shoreline — now featured on our homepage.</p>
+                            <div class="spotlight-actions">
+                                <a href="#" class="cta-button" id="spotlightWatchBtn">Watch in Gallery</a>
+                                <a href="services/commercial.html" class="cta-button-secondary">Commercial Services</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="portfolio-gallery section-padding alt-bg" id="portfolioGallery">
+            <div class="container">
+                <div class="section-header centered">
+                    <h2>Gallery</h2>
+                    <p>Browse photos by category or open any item full screen</p>
+                </div>
+
+                <div class="portfolio-toolbar">
+                    <div class="portfolio-toolbar-inner">
+                        <div class="filter-buttons">
+                            <button type="button" class="filter-btn active" data-filter="all">All</button>
+                            <button type="button" class="filter-btn" data-filter="weddings">Weddings</button>
+                            <button type="button" class="filter-btn" data-filter="real-estate">Real Estate</button>
+                            <button type="button" class="filter-btn" data-filter="commercial">Commercial</button>
+                        </div>
+                        <p class="portfolio-results" id="portfolioResults" aria-live="polite"></p>
+                    </div>
+                </div>
+
+                <div class="grid-container" data-gallery="gallery">
+                    <article class="portfolio-item portfolio-item--hero portfolio-item--video" data-category="commercial" data-media="video">
+                        <span class="portfolio-item-badge">Video</span>
+                        <a href="assets/images/folly-beach/Folly-Beach-lightning.mp4" data-type="video" data-title="Folly Beach Lightning — Aerial Video" data-spotlight-video>
+                            <video muted playsinline preload="metadata" poster="assets/images/folly-beach/folly-beach.jpeg" aria-label="Folly Beach lightning aerial video preview"></video>
+                            <span class="portfolio-play-icon" aria-hidden="true"><i class="fas fa-play"></i></span>
+                            <span class="overlay-action" aria-hidden="true"><i class="fas fa-play"></i></span>
+                            <div class="item-overlay">
+                                <div class="overlay-content">
+                                    <h3>Folly Beach Lightning</h3>
+                                    <p>Commercial</p>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="portfolio-item" data-category="weddings" data-media="photo">
+                        <span class="portfolio-item-badge">Weddings</span>
+                        <a href="assets/images/weddings/wedding-venue.jpeg" data-title="Wedding Aerial Coverage — Venue">
+                            <img src="assets/images/weddings/wedding-venue.jpeg" alt="Aerial view of a wedding venue" width="800" height="450" loading="lazy" decoding="async">
+                            <span class="overlay-action" aria-hidden="true"><i class="fas fa-expand"></i></span>
+                            <div class="item-overlay">
+                                <div class="overlay-content">
+                                    <h3>Venue Reveal</h3>
+                                    <p>Weddings</p>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="portfolio-item" data-category="weddings" data-media="photo">
+                        <span class="portfolio-item-badge">Weddings</span>
+                        <a href="assets/images/weddings/valley.jpeg" data-title="Wedding Aerial Coverage — Valley">
+                            <img src="assets/images/weddings/valley.jpeg" alt="Aerial valley view from a wedding shoot" width="800" height="450" loading="lazy" decoding="async">
+                            <span class="overlay-action" aria-hidden="true"><i class="fas fa-expand"></i></span>
+                            <div class="item-overlay">
+                                <div class="overlay-content">
+                                    <h3>Valley Landscape</h3>
+                                    <p>Weddings</p>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="portfolio-item" data-category="real-estate" data-media="photo">
+                        <span class="portfolio-item-badge">Real Estate</span>
+                        <a href="assets/images/real-estate/scenery.png" data-title="Real Estate Aerial — Property Overview">
+                            <img src="assets/images/real-estate/scenery.png" alt="Aerial property overview" width="800" height="450" loading="lazy" decoding="async">
+                            <span class="overlay-action" aria-hidden="true"><i class="fas fa-expand"></i></span>
+                            <div class="item-overlay">
+                                <div class="overlay-content">
+                                    <h3>Property Overview</h3>
+                                    <p>Real Estate</p>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="portfolio-item" data-category="real-estate" data-media="photo">
+                        <span class="portfolio-item-badge">Real Estate</span>
+                        <a href="assets/images/real-estate/snowy-house-front.jpeg" data-title="Real Estate Aerial — Snowy Home Front">
+                            <img src="assets/images/real-estate/snowy-house-front.jpeg" alt="Front aerial view of a home in snow" width="800" height="450" loading="lazy" decoding="async">
+                            <span class="overlay-action" aria-hidden="true"><i class="fas fa-expand"></i></span>
+                            <div class="item-overlay">
+                                <div class="overlay-content">
+                                    <h3>Snowy Home — Front</h3>
+                                    <p>Real Estate</p>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="portfolio-item" data-category="real-estate" data-media="photo">
+                        <span class="portfolio-item-badge">Real Estate</span>
+                        <a href="assets/images/real-estate/snowy-house.jpeg" data-title="Real Estate Aerial — Snowy Home">
+                            <img src="assets/images/real-estate/snowy-house.jpeg" alt="Aerial view of a home in snow" width="800" height="450" loading="lazy" decoding="async">
+                            <span class="overlay-action" aria-hidden="true"><i class="fas fa-expand"></i></span>
+                            <div class="item-overlay">
+                                <div class="overlay-content">
+                                    <h3>Snowy Home</h3>
+                                    <p>Real Estate</p>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="portfolio-item" data-category="real-estate" data-media="photo">
+                        <span class="portfolio-item-badge">Real Estate</span>
+                        <a href="assets/images/real-estate/snowy-neighborhood.jpeg" data-title="Real Estate Aerial — Snowy Neighborhood">
+                            <img src="assets/images/real-estate/snowy-neighborhood.jpeg" alt="Aerial view of a snowy neighborhood" width="800" height="450" loading="lazy" decoding="async">
+                            <span class="overlay-action" aria-hidden="true"><i class="fas fa-expand"></i></span>
+                            <div class="item-overlay">
+                                <div class="overlay-content">
+                                    <h3>Snowy Neighborhood</h3>
+                                    <p>Real Estate</p>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="portfolio-item" data-category="commercial" data-media="photo">
+                        <span class="portfolio-item-badge">Commercial</span>
+                        <a href="assets/images/folly-beach/folly-beach.jpeg" data-title="Folly Beach — Coastal Aerial">
+                            <img src="assets/images/folly-beach/folly-beach.jpeg" alt="Aerial view of Folly Beach coastline" width="800" height="450" loading="lazy" decoding="async">
+                            <span class="overlay-action" aria-hidden="true"><i class="fas fa-expand"></i></span>
+                            <div class="item-overlay">
+                                <div class="overlay-content">
+                                    <h3>Folly Beach</h3>
+                                    <p>Commercial</p>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="portfolio-item" data-category="commercial" data-media="photo">
+                        <span class="portfolio-item-badge">Commercial</span>
+                        <a href="assets/images/folly-beach/folly-beach-2.jpeg" data-title="Folly Beach — Shoreline Aerial">
+                            <img src="assets/images/folly-beach/folly-beach-2.jpeg" alt="Aerial shoreline view at Folly Beach" width="800" height="450" loading="lazy" decoding="async">
+                            <span class="overlay-action" aria-hidden="true"><i class="fas fa-expand"></i></span>
+                            <div class="item-overlay">
+                                <div class="overlay-content">
+                                    <h3>Folly Beach Shoreline</h3>
+                                    <p>Commercial</p>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="portfolio-item" data-category="commercial" data-media="photo">
+                        <span class="portfolio-item-badge">Commercial</span>
+                        <a href="assets/images/commercial/rva-skyline.jpeg" data-title="Richmond Skyline — Aerial">
+                            <img src="assets/images/commercial/rva-skyline.jpeg" alt="Aerial view of the Richmond skyline" width="800" height="450" loading="lazy" decoding="async">
+                            <span class="overlay-action" aria-hidden="true"><i class="fas fa-expand"></i></span>
+                            <div class="item-overlay">
+                                <div class="overlay-content">
+                                    <h3>RVA Skyline</h3>
+                                    <p>Commercial</p>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="portfolio-item" data-category="commercial" data-media="photo">
+                        <span class="portfolio-item-badge">Commercial</span>
+                        <a href="assets/images/commercial/james-river.jpeg" data-title="James River — Aerial">
+                            <img src="assets/images/commercial/james-river.jpeg" alt="Aerial view of the James River" width="800" height="450" loading="lazy" decoding="async">
+                            <span class="overlay-action" aria-hidden="true"><i class="fas fa-expand"></i></span>
+                            <div class="item-overlay">
+                                <div class="overlay-content">
+                                    <h3>James River</h3>
+                                    <p>Commercial</p>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="portfolio-item" data-category="commercial" data-media="photo">
+                        <span class="portfolio-item-badge">Commercial</span>
+                        <a href="assets/images/commercial/train-bridge-sunset.jpeg" data-title="Train Bridge at Sunset — Aerial">
+                            <img src="assets/images/commercial/train-bridge-sunset.jpeg" alt="Aerial sunset view of a train bridge" width="800" height="450" loading="lazy" decoding="async">
+                            <span class="overlay-action" aria-hidden="true"><i class="fas fa-expand"></i></span>
+                            <div class="item-overlay">
+                                <div class="overlay-content">
+                                    <h3>Train Bridge Sunset</h3>
+                                    <p>Commercial</p>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                    <div class="portfolio-empty" id="portfolioEmpty">No items in this category yet.</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="portfolio-demos section-padding">
+            <div class="container">
+                <div class="section-header centered">
+                    <h2>Demos</h2>
+                    <p>Sample reels and demo footage — click to watch full screen</p>
+                </div>
+                <div class="grid-container demos-grid" data-gallery="demos">
+                    <article class="portfolio-item portfolio-item--video" data-category="demos" data-media="video">
+                        <span class="portfolio-item-badge">Demo</span>
+                        <a href="assets/videos/Drone%20Demo.mp4" data-type="video" data-title="Drone Demo Reel">
+                            <video muted playsinline preload="metadata" poster="assets/videos/DemoVideo.jpeg" aria-label="Drone demo reel preview"></video>
+                            <span class="portfolio-play-icon" aria-hidden="true"><i class="fas fa-play"></i></span>
+                            <span class="overlay-action" aria-hidden="true"><i class="fas fa-play"></i></span>
+                            <div class="item-overlay">
+                                <div class="overlay-content">
+                                    <h3>Drone Demo Reel</h3>
+                                    <p>Demo</p>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="portfolio-item portfolio-item--video" data-category="demos" data-media="video">
+                        <span class="portfolio-item-badge">Demo</span>
+                        <a href="assets/videos/Playback.mp4" data-type="video" data-title="Aerial Playback Reel">
+                            <video muted playsinline preload="metadata" poster="assets/images/weddings/wedding-venue.jpeg" aria-label="Aerial playback reel preview"></video>
+                            <span class="portfolio-play-icon" aria-hidden="true"><i class="fas fa-play"></i></span>
+                            <span class="overlay-action" aria-hidden="true"><i class="fas fa-play"></i></span>
+                            <div class="item-overlay">
+                                <div class="overlay-content">
+                                    <h3>Aerial Playback</h3>
+                                    <p>Demo</p>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to capture your project from above?</h2>
+                    <p>Tell us about your wedding, listing, or commercial shoot and we'll put together a quote.</p>
+                    <a href="contact.html" class="cta-button">Get in Touch</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/images/nuvue-logos/nuvue-header-white-web.png" alt="NuVue Media LLC Logo" height="88" width="269" loading="lazy" decoding="async">
+                    <p>Elevating your vision with stunning aerial imagery.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-nav">
+                        <h3>Navigate</h3>
+                        <ul>
+                            <li><a href="services/real-estate.html">Real Estate</a></li>
+                            <li><a href="services/events-weddings.html">Weddings & Events</a></li>
+                            <li><a href="services/commercial.html">Commercial</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-contact">
+                        <h3>Contact Us</h3>
+                        <ul>
+                            <li><i class="fas fa-phone"></i> (804) 955-9107</li>
+                            <li><i class="fas fa-envelope"></i> nuvuetech@gmail.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Richmond, VA</li>
+                        </ul>
+                    </div>
+                    <div class="footer-social">
+                        <h3>Follow Us</h3>
+                        <div class="social-icons">
+                            <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                            <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 NuVue Media LLC. All rights reserved.</p>
+                <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-content">
+            <span class="video-modal-close" id="videoModalClose">&times;</span>
+            <div id="videoContainer"></div>
+        </div>
+    </div>
+
+    <script src="assets/js/headers.js"></script>
+    <script src="assets/js/portfolio.js"></script>
+</body>
+</html>

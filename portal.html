@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Portal | NuVue Media LLC</title>
+    <meta name="description" content="Access your NuVue Media aerial photo and video galleries via our secure Pixieset client portal.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="icon" href="assets/images/nuvue-logos/nuvue-transparent-black.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/headers.css">
+    <link rel="stylesheet" href="assets/css/portal.css">
+</head>
+<body class="portal-page">
+    <header class="secondary-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html" aria-label="NuVue Media LLC home">
+                        <img src="assets/images/nuvue-logos/nuvue-header-white-web.png" alt="NuVue Media LLC Logo" height="128" width="393" decoding="async">
+                    </a>
+                </div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">Services <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="services/real-estate.html">Real Estate</a></li>
+                                <li><a href="services/events-weddings.html">Weddings & Events</a></li>
+                                <li><a href="services/commercial.html">Commercial</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                    </ul>
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </nav>
+                <div class="header-contact">
+                    <a href="portal.html" class="cta-button-main active">Client Portal</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="portal-intro">
+            <div class="container">
+                <p class="portal-eyebrow">Powered by Pixieset</p>
+                <h1>Client Portal</h1>
+                <p class="portal-lead">View and download your aerial photos and videos from a secure, password-protected gallery.</p>
+            </div>
+        </section>
+
+        <section id="portal-content" class="portal-section">
+            <div class="container">
+                <div class="portal-layout portal-layout--single">
+                    <div class="portal-access-card">
+                        <div class="portal-access-icon" aria-hidden="true">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h2>Access your gallery</h2>
+                        <p>When your project is ready, we send you a link to your private Pixieset collection. Use the password included in your delivery email to view and download files.</p>
+
+                        <div id="portal-setup-notice" class="portal-setup-notice hidden" role="status">
+                            <i class="fas fa-circle-info" aria-hidden="true"></i>
+                            <p>Gallery link is not configured yet. Update <code>assets/js/portal.config.js</code> with your Pixieset URL after you create your account.</p>
+                        </div>
+
+                        <div class="portal-access-actions">
+                            <a href="https://pixieset.com" id="pixieset-gallery-btn" class="cta-button" target="_blank" rel="noopener noreferrer">
+                                Open Client Gallery <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                            </a>
+                            <a href="contact.html" class="cta-button-secondary">Request access</a>
+                        </div>
+
+                        <p class="portal-access-note">Lost your link or password? Email <a id="portal-support-email" href="mailto:nuvuetech@gmail.com">nuvuetech@gmail.com</a> or call <a id="portal-support-phone" href="tel:8049559107">(804) 955-9107</a>.</p>
+                    </div>
+
+                    <aside class="portal-steps" aria-label="How client access works">
+                        <h2>How it works</h2>
+                        <ol class="portal-step-list">
+                            <li>
+                                <span class="portal-step-number">1</span>
+                                <div>
+                                    <strong>Book your shoot</strong>
+                                    <span>Real estate, weddings, commercial, and more.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="portal-step-number">2</span>
+                                <div>
+                                    <strong>We deliver your gallery</strong>
+                                    <span>You receive a secure Pixieset link and password by email.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="portal-step-number">3</span>
+                                <div>
+                                    <strong>View &amp; download</strong>
+                                    <span>Browse full-resolution photos and video from any device.</span>
+                                </div>
+                            </li>
+                        </ol>
+
+                        <ul class="portal-feature-list portal-feature-list--compact">
+                            <li><i class="fas fa-shield-alt" aria-hidden="true"></i> Password-protected collections</li>
+                            <li><i class="fas fa-cloud-download-alt" aria-hidden="true"></i> High-resolution downloads</li>
+                            <li><i class="fas fa-mobile-alt" aria-hidden="true"></i> Works on phone, tablet, and desktop</li>
+                            <li><i class="fas fa-share-alt" aria-hidden="true"></i> Easy sharing with your team</li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/images/nuvue-logos/nuvue-header-white-web.png" alt="NuVue Media LLC Logo" height="88" width="269" loading="lazy" decoding="async">
+                    <p>Elevating your vision with stunning aerial imagery.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-nav">
+                        <h3>Navigate</h3>
+                        <ul>
+                            <li><a href="services/real-estate.html">Real Estate</a></li>
+                            <li><a href="services/events-weddings.html">Weddings & Events</a></li>
+                            <li><a href="services/commercial.html">Commercial</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-contact">
+                        <h3>Contact Us</h3>
+                        <ul>
+                            <li><i class="fas fa-phone"></i> (804) 955-9107</li>
+                            <li><i class="fas fa-envelope"></i> nuvuetech@gmail.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Richmond, VA</li>
+                        </ul>
+                    </div>
+                    <div class="footer-social">
+                        <h3>Follow Us</h3>
+                        <div class="social-icons">
+                            <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                            <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 NuVue Media LLC. All rights reserved.</p>
+                <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/portal.config.js"></script>
+    <script src="assets/js/headers.js"></script>
+    <script src="assets/js/portal.js"></script>
+</body>
+</html>

@@ -394,7 +394,7 @@ nav {
     .logo img,
     .logo .logo-video,
     .logo .logo-fallback {
-        height: 64px;
+        height: 80px;
         width: auto;
         max-width: 100%;
     }
@@ -570,7 +570,7 @@ nav {
     .logo img,
     .logo .logo-video,
     .logo .logo-fallback {
-        height: 56px;
+        height: 72px;
     }
 
     .header-contact .cta-button-main {

@@ -309,63 +309,6 @@ nav {
 /* ===== Responsive Styles ===== */
 @media screen and (max-width: 1100px) {
     .secondary-header {
-        padding: 0 20px;
-    }
-
-    .header-content {
-        padding: 20px 16px;
-    }
-
-    .logo img,
-    .logo .logo-video,
-    .logo .logo-fallback {
-        height: 88px;
-        max-width: min(320px, 42vw);
-    }
-
-    .secondary-header .nav-links {
-        gap: 16px;
-    }
-
-    .secondary-header .nav-links a {
-        font-size: 1rem;
-    }
-
-    .header-contact {
-        margin-left: 16px;
-    }
-
-    .header-contact .cta-button-main {
-        padding: 8px 14px;
-        font-size: 13px;
-    }
-}
-
-@media screen and (max-width: 1024px) {
-    .secondary-header {
-        min-height: 150px;
-        padding: 0 20px;
-    }
-
-    .header-content {
-        min-height: 120px;
-        padding: 20px;
-    }
-
-    .logo img,
-    .logo .logo-video,
-    .logo .logo-fallback {
-        height: 96px;
-        max-width: 90vw;
-    }
-    
-    .secondary-header .nav-links a {
-        font-size: 14px;
-    }
-}
-
-@media screen and (max-width: 992px) {
-    .secondary-header {
         min-height: auto;
         padding: max(env(safe-area-inset-top), 12px) 20px 10px;
     }
@@ -373,22 +316,43 @@ nav {
     .header-content {
         min-height: auto;
         padding: 18px 16px;
-        gap: 36px;
-        justify-content: space-between;
+        gap: 12px;
+        justify-content: flex-start;
         align-items: center;
     }
 
     .logo {
         flex: 0 1 auto;
         min-width: 0;
-        margin-right: 12px;
+        margin-right: 0;
+        order: 1;
+    }
+
+    .header-contact,
+    .secondary-header .header-contact {
+        display: block;
+        order: 2;
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    .header-contact .cta-button-main {
+        padding: 10px 14px;
+        font-size: 12px;
+        min-height: 44px;
+        box-shadow: 0 2px 8px rgba(0, 155, 255, 0.35);
+    }
+
+    nav {
+        order: 3;
+        margin-left: 10px;
     }
 
     .logo img,
     .logo .logo-video,
     .logo .logo-fallback {
         height: 80px;
-        max-width: min(280px, calc(100vw - 120px));
+        max-width: min(280px, calc(100vw - 240px));
     }
 
     .hamburger {
@@ -421,8 +385,8 @@ nav {
     nav {
         justify-content: flex-end;
         flex: 0 0 auto;
-        margin-left: 16px;
-        padding-left: 4px;
+        margin-left: 10px;
+        padding-left: 0;
     }
     
     .nav-links {
@@ -514,26 +478,34 @@ nav {
 
     .nav-portal-link {
         display: list-item;
+        width: 100%;
+        margin: 0 0 1.25rem !important;
+        padding-bottom: 1.25rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        text-align: center;
     }
 
     .nav-portal-link a {
-        display: inline-block;
-        margin-top: 8px;
-        padding: 12px 24px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: min(260px, 80vw);
+        min-height: 48px;
+        margin-top: 0;
+        padding: 12px 28px;
         background-color: #00BFFF;
         color: #fff !important;
         border-radius: 4px;
-        font-weight: 500;
+        font-size: 1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        box-shadow: 0 4px 14px rgba(0, 155, 255, 0.35);
     }
 
     .nav-portal-link a:hover {
         background-color: #0099CC;
         color: #fff !important;
-    }
-    
-    .header-contact,
-    .secondary-header .header-contact {
-        display: none;
     }
     
     .header-contact a.cta-button,
@@ -553,12 +525,21 @@ nav {
     .logo .logo-video,
     .logo .logo-fallback {
         height: 72px;
-        max-width: min(260px, calc(100vw - 108px));
+        max-width: min(260px, calc(100vw - 210px));
     }
 
     .header-content {
         padding: 16px 12px;
-        gap: 28px;
+        gap: 8px;
+    }
+
+    .header-contact .cta-button-main {
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+
+    nav {
+        margin-left: 8px;
     }
 }
 

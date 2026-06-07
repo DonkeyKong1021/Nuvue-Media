@@ -33,6 +33,23 @@
     min-height: 140px;
     margin: 0 auto;
     overflow: visible;
+    gap: 16px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+}
+
+.header-actions nav {
+    flex: 1;
+    order: 1;
+}
+
+.header-actions .header-contact {
+    order: 2;
 }
 
 .secondary-header .header-content {
@@ -183,6 +200,10 @@ nav {
     flex-shrink: 0;
 }
 
+.secondary-header .header-actions .header-contact {
+    margin-left: 30px;
+}
+
 .header-contact .cta-button-main {
     display: inline-flex;
     align-items: center;
@@ -319,24 +340,45 @@ nav {
     }
 
     .header-content {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) auto auto;
-        column-gap: 14px;
+        display: flex;
+        flex-wrap: nowrap;
         align-items: center;
+        justify-content: space-between;
+        gap: 10px;
         min-height: auto;
         padding: 12px 0;
     }
 
+    .header-actions {
+        display: flex;
+        align-items: center;
+        flex: 0 0 auto;
+        gap: 10px;
+        min-width: 0;
+    }
+
+    .header-actions .header-contact {
+        order: 1;
+    }
+
+    .header-actions nav {
+        order: 2;
+        flex: 0 0 auto;
+        justify-content: flex-end;
+        margin-left: 0;
+        padding-left: 0;
+    }
+
     .logo {
-        grid-column: 1;
+        flex: 1 1 auto;
         min-width: 0;
         margin-right: 0;
     }
 
     .header-contact,
-    .secondary-header .header-contact {
+    .secondary-header .header-contact,
+    .secondary-header .header-actions .header-contact {
         display: block;
-        grid-column: 2;
         margin-left: 0;
         margin-right: 0;
         flex-shrink: 0;
@@ -347,14 +389,6 @@ nav {
         font-size: 12px;
         min-height: 44px;
         box-shadow: 0 2px 8px rgba(0, 155, 255, 0.35);
-    }
-
-    nav {
-        grid-column: 3;
-        justify-content: flex-end;
-        flex: 0 0 auto;
-        margin-left: 0;
-        padding-left: 0;
     }
 
     .logo img,
@@ -525,8 +559,12 @@ nav {
     }
 
     .header-content {
-        column-gap: 10px;
+        gap: 8px;
         padding: 10px 0;
+    }
+
+    .header-actions {
+        gap: 8px;
     }
 
     .logo img,

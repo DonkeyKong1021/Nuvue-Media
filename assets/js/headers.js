@@ -21,13 +21,31 @@ document.addEventListener("DOMContentLoaded", () => {
     portalItem.className = "nav-portal-link";
     const portalAnchor = document.createElement("a");
     portalAnchor.href = headerContactLink.getAttribute("href") || "portal.html";
-    portalAnchor.textContent = headerContactLink.textContent.trim() || "Client Portal";
+    portalAnchor.textContent =
+      headerContactLink.getAttribute("aria-label") ||
+      headerContactLink.dataset.fullLabel ||
+      headerContactLink.textContent.trim() ||
+      "Client Portal";
     portalItem.appendChild(portalAnchor);
     navLinks.insertBefore(portalItem, navLinks.firstChild);
   }
 
   const MOBILE_NAV_QUERY = window.matchMedia("(max-width: 1100px)");
+  const COMPACT_PORTAL_QUERY = window.matchMedia("(max-width: 600px)");
   const isMobileNav = () => MOBILE_NAV_QUERY.matches;
+
+  const syncPortalLabel = () => {
+    if (!headerContactLink) return;
+    if (!headerContactLink.dataset.fullLabel) {
+      headerContactLink.dataset.fullLabel = headerContactLink.textContent.trim();
+    }
+    headerContactLink.textContent = COMPACT_PORTAL_QUERY.matches
+      ? "Portal"
+      : headerContactLink.dataset.fullLabel;
+  };
+
+  syncPortalLabel();
+  COMPACT_PORTAL_QUERY.addEventListener("change", syncPortalLabel);
 
   if (hamburger && navLinks) {
     const closeMenu = () => {
@@ -51,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     window.addEventListener("resize", () => {
+      syncPortalLabel();
       if (!isMobileNav()) closeMenu();
     });
   }

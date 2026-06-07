@@ -20,72 +20,11 @@
     }
 }
 
-/* Mobile navigation */
+/* Mobile layout — nav styles live in headers.css */
 @media screen and (max-width: 768px) {
-    .hamburger {
-        display: block;
-    }
-    
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 70%;
-        height: 100vh;
-        background-color: white;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: 0.5s ease;
-        z-index: 1001;
-        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-    }
-    
-    .nav-links.active {
-        right: 0;
-    }
-    
-    .nav-links a {
-        margin: 1rem 0;
-    }
-    
-    .nav-links a.active:after {
-        width: 50%;
-        left: 25%;
-    }
-    
-    /* Style for mobile open menu */
-    .hamburger.active span:nth-child(1) {
-        transform: translateY(7px) rotate(45deg);
-    }
-    
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .hamburger.active span:nth-child(3) {
-        transform: translateY(-7px) rotate(-45deg);
-    }
-    
-    /* Overlay when menu is open */
-    .menu-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 1000;
-        display: none;
-    }
-    
-    .menu-overlay.active {
-        display: block;
-    }
-    
-    /* Content adjustments */
-    .hero-content h1 {
-        font-size: 2.75rem;
+    .container {
+        padding-left: max(var(--spacing-sm), env(safe-area-inset-left));
+        padding-right: max(var(--spacing-sm), env(safe-area-inset-right));
     }
     
     .portfolio-grid {
@@ -95,69 +34,57 @@
     .services-grid {
         grid-template-columns: 1fr;
     }
-    
-    /* Make dropdown menus behave for mobile */
-    .nav-links .dropdown-menu {
-        position: static;
-        background-color: white;
-        box-shadow: none;
-        padding: 0;
-        /* Hide the dropdown menu by default */
-        display: none;
-    }
-    
-    /* When active (toggled via JS) the menu will display */
-    .nav-links .dropdown-menu.active {
-        display: block;
-    }
-    
-    /* Optional: Add a border below each submenu item for clarity */
-    .nav-links .dropdown-menu li a {
-        border-bottom: 1px solid #ddd;
-    }
 
-    /* Mobile header adjustments for better alignment */
-    header {
-        display: flex;
+    .button-group {
+        flex-direction: column;
         align-items: center;
-        justify-content: space-between;
-        padding: 10px 20px;
-    }
-    .logo {
-        max-height: 40px;
-        width: auto;
-    }
-    .hamburger {
-        padding: 10px;
-    }
-    .hamburger span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        margin: 4px auto;
-        background-color: #000;
-        border-radius: 3px;
-        transition: all 0.4s ease;
+        width: 100%;
+        gap: 0.65rem;
     }
 
-    /* Mobile overlay fade transition */
-    .menu-overlay {
-        transition: opacity 0.4s ease;
-        opacity: 0;
-    }
-    .menu-overlay.active {
-        opacity: 1;
-    }
-
-    /* Prevent body scroll when navigation is open */
-    body.nav-open {
-        overflow: hidden;
+    .button-group .cta-button,
+    .button-group .cta-button-secondary,
+    .button-group .cta-button-main {
+        width: 100%;
+        max-width: 260px;
+        min-height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
     }
 
-    /* Adjust hero content spacing for mobile view */
-    .hero-content {
-        padding: 20px;
-        text-align: center;
+    .footer-links {
+        flex-direction: column;
+        gap: 28px;
+    }
+
+    .footer-logo img {
+        height: 72px;
+    }
+
+    footer {
+        padding-bottom: max(40px, env(safe-area-inset-bottom));
+    }
+
+    .contact-content {
+        flex-direction: column;
+    }
+
+    .contact-info,
+    .contact-form {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        font-size: 16px;
+    }
+
+    .map-container {
+        height: 280px;
     }
 }
 
@@ -165,14 +92,6 @@
 @media screen and (max-width: 576px) {
     html {
         font-size: 14px;
-    }
-    
-    .hero-content h1 {
-        font-size: 2.25rem;
-    }
-    
-    .hero-content p {
-        font-size: 1rem;
     }
     
     h2 {
@@ -187,6 +106,8 @@
         flex-direction: column;
         text-align: center;
         gap: 0.5rem;
+        padding-left: 12px;
+        padding-right: 12px;
     }
     
     .service-icon {
@@ -201,5 +122,9 @@
     
     .testimonial-content {
         padding: var(--spacing-md);
+    }
+
+    .contact-intro h2 {
+        font-size: 1.85rem;
     }
 }

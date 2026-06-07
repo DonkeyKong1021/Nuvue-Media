@@ -690,7 +690,7 @@ body.lightbox-open {
 
 @media (max-width: 768px) {
     .portfolio-intro {
-        padding: 170px 0 56px;
+        padding: 96px 16px 48px;
     }
 
     .portfolio-intro h1 {

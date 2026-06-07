@@ -49,14 +49,8 @@ body {
     color: var(--dark-color);
     line-height: 1.6;
     background-color: var(--light-color);
-    /* Prevent scrolling past the top of the page */
-    overflow-anchor: none;
-    overscroll-behavior-y: none;
-    /* Additional fix for different browsers */
     overflow-x: hidden;
-    
-    /* Ensure content doesn't bounce on mobile devices */
-    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {

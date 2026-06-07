@@ -586,7 +586,12 @@
 }
 
 .portfolio-lightbox-video {
-    width: min(94vw, 1100px);
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    max-height: min(56vh, calc(94vw * 9 / 16));
+    object-fit: contain;
     background: #000;
 }
 
@@ -740,7 +745,34 @@ body.lightbox-open {
     }
 
     .portfolio-lightbox-content {
-        padding: 0 40px;
+        width: 100%;
+        max-height: calc(100dvh - 24px);
+        padding: max(env(safe-area-inset-top), 52px) 12px 12px;
+    }
+
+    .portfolio-lightbox-close {
+        top: max(env(safe-area-inset-top), 10px);
+        right: 10px;
+        position: fixed;
+        z-index: 3001;
+    }
+
+    .portfolio-lightbox-nav {
+        display: none;
+    }
+
+    .portfolio-lightbox-video {
+        max-height: min(52vh, calc(100vw * 9 / 16));
+        border-radius: 10px;
+    }
+
+    .portfolio-lightbox-image {
+        max-height: 62vh;
+    }
+
+    .portfolio-lightbox-meta {
+        margin-top: 10px;
+        padding: 0 4px;
     }
 }
 

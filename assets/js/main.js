@@ -151,12 +151,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const loadVideo = () => {
       clearVideo();
+      const player = document.createElement("div");
+      player.className = "video-modal-player";
       const video = document.createElement("video");
       video.controls = true;
       video.autoplay = true;
       video.playsInline = true;
       video.src = "assets/images/folly-beach/folly-beach-loop.mp4";
-      videoContainer.appendChild(video);
+      player.appendChild(video);
+      videoContainer.appendChild(player);
       video.play().catch(() => {});
     };
 

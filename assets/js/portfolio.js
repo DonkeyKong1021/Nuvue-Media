@@ -112,17 +112,19 @@ function initDemoVideoModal() {
 
   const loadVideo = () => {
     clearVideo();
+    const player = document.createElement('div');
+    player.className = 'video-modal-player';
     const iframe = document.createElement('iframe');
-    iframe.width = '800';
-    iframe.height = '450';
-    iframe.src = 'https://www.youtube.com/embed/uQPXx1ccGYI';
+    iframe.src = 'https://www.youtube.com/embed/uQPXx1ccGYI?rel=0&modestbranding=1';
+    iframe.setAttribute('title', 'Virginia and Zach Wedding Aerial');
     iframe.setAttribute('frameborder', '0');
     iframe.setAttribute(
       'allow',
-      'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+      'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
     );
     iframe.setAttribute('allowfullscreen', '');
-    videoContainer.appendChild(iframe);
+    player.appendChild(iframe);
+    videoContainer.appendChild(player);
   };
 
   demoBtn.addEventListener('click', (event) => {

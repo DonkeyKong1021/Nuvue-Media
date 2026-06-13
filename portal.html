@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Client Portal | NuVue Media LLC</title>
     <meta name="description" content="Access your NuVue Media aerial photo and video galleries via our secure Pixieset client portal.">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?v=20260613">
     <link rel="stylesheet" href="assets/css/legal-modals.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/responsive.css?v=20260611">
     <link rel="icon" href="assets/images/nuvue-logos/nuvue-transparent-black.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/headers.css?v=20260607f">
+    <link rel="stylesheet" href="assets/css/headers.css?v=20260613b">
     <link rel="stylesheet" href="assets/css/portal.css">
 </head>
 <body class="portal-page">
@@ -30,7 +30,7 @@
                         <a href="portal.html" class="cta-button-main active" aria-label="Client Portal">Client Portal</a>
                     </div>
                     <nav>
-                        <ul class="nav-links">
+                        <ul class="nav-links" id="site-nav">
                             <li><a href="index.html">Home</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle">Services <i class="fas fa-chevron-down"></i></a>
@@ -42,13 +42,14 @@
                             </li>
                             <li><a href="portfolio.html">Portfolio</a></li>
                             <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
                         </ul>
-                        <div class="hamburger">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
                     </nav>
+                    <button type="button" class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -131,32 +132,37 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <img src="assets/images/nuvue-logos/nuvue-header-white-web.png" alt="NuVue Media LLC Logo" height="88" width="269" loading="lazy" decoding="async">
-                    <p>Elevating your vision with stunning aerial imagery.</p>
+                    <p>Professional drone services in Richmond, VA</p>
                 </div>
                 <div class="footer-links">
-                    <div class="footer-nav">
-                        <h3>Navigate</h3>
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="portal.html">Client Portal</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Services</h3>
                         <ul>
                             <li><a href="services/real-estate.html">Real Estate</a></li>
                             <li><a href="services/events-weddings.html">Weddings & Events</a></li>
                             <li><a href="services/commercial.html">Commercial</a></li>
                         </ul>
                     </div>
-                    <div class="footer-contact">
-                        <h3>Contact Us</h3>
-                        <ul>
-                            <li><i class="fas fa-phone"></i> (804) 955-9107</li>
-                            <li><i class="fas fa-envelope"></i> nuvuetech@gmail.com</li>
-                            <li><i class="fas fa-map-marker-alt"></i> Richmond, VA</li>
-                        </ul>
-                    </div>
-                    <div class="footer-social">
-                        <h3>Follow Us</h3>
-                        <div class="social-icons">
-                            <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                            <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        </div>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Richmond, VA</p>
+                    <p><i class="fas fa-envelope"></i> nuvuetech@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> (804) 955-9107</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
@@ -168,7 +174,7 @@
     </footer>
 
     <script src="assets/js/portal.config.js"></script>
-    <script src="assets/js/headers.js"></script>
+    <script src="assets/js/headers.js?v=20260613b"></script>
     <script src="assets/js/legal-modals.js"></script>
     <script src="assets/js/portal.js"></script>
 </body>

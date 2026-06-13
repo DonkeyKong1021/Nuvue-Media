@@ -4,9 +4,9 @@
 .page-banner--intro .banner-overlay {
     background: linear-gradient(
         to bottom,
-        rgba(0, 0, 0, 0.35) 0%,
-        rgba(0, 0, 0, 0.55) 45%,
-        rgba(0, 0, 0, 0.72) 100%
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.35) 45%,
+        rgba(0, 0, 0, 0.5) 100%
     );
 }
 
@@ -14,7 +14,7 @@
     max-width: 820px;
     gap: 1rem;
     padding: 2rem 1.75rem;
-    background: rgba(0, 0, 0, 0.42);
+    background: rgba(0, 0, 0, 0.28);
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.12);
 }
@@ -54,16 +54,50 @@
 
 .page-banner--commercial {
     background:
-        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.45)),
-        url('../images/real-estate/scenery.png') center center / cover no-repeat;
+        linear-gradient(rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.16)),
+        url('../images/folly-beach/folly-beach-2.jpeg') center center / cover no-repeat;
+}
+
+.page-banner--commercial.page-banner--intro .banner-overlay {
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.08) 0%,
+        rgba(0, 0, 0, 0.2) 50%,
+        rgba(0, 0, 0, 0.32) 100%
+    );
+}
+
+.page-banner--commercial .banner-content h1,
+.page-banner--commercial .banner-content p,
+.page-banner--commercial .banner-content .banner-lead,
+.page-banner--commercial .banner-content .banner-description,
+.page-banner--commercial .scroll-down a {
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
+}
+
+.page-banner--weddings.page-banner--intro .banner-overlay {
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.08) 0%,
+        rgba(0, 0, 0, 0.2) 50%,
+        rgba(0, 0, 0, 0.32) 100%
+    );
+}
+
+.page-banner--weddings .banner-content h1,
+.page-banner--weddings .banner-content p,
+.page-banner--weddings .banner-content .banner-lead,
+.page-banner--weddings .banner-content .banner-description,
+.page-banner--weddings .scroll-down a {
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
 }
 
 .page-banner.real-estate-banner.page-banner--intro .banner-overlay {
     background: linear-gradient(
         to bottom,
-        rgba(0, 0, 0, 0.25) 0%,
-        rgba(0, 0, 0, 0.5) 50%,
-        rgba(0, 0, 0, 0.68) 100%
+        rgba(0, 0, 0, 0.12) 0%,
+        rgba(0, 0, 0, 0.3) 50%,
+        rgba(0, 0, 0, 0.45) 100%
     );
 }
 
@@ -78,47 +112,10 @@
 /* Services Overview Section */
 .services-overview {
     padding: 80px 0;
-    background-color: #fff;
+    background-color: var(--surface-color);
 }
 
-.section-header {
-    margin-bottom: 2.5rem;
-    text-align: left;
-}
-
-.section-header.centered {
-    text-align: center;
-}
-
-.section-header h2 {
-    font-size: 2.2rem;
-    margin-bottom: 0;
-    color: var(--dark-color);
-}
-
-.section-header.centered h2::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background-color: var(--primary-color);
-    margin: 0.75rem auto 0;
-    position: static;
-}
-
-.section-header p {
-    font-size: 1.1rem;
-    color: var(--text-color);
-    max-width: 800px;
-    margin: 0.75rem auto 0;
-}
-
-.section-header .section-intro {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    max-width: 720px;
-    margin-top: 1.25rem;
-}
+/* Shared .section-header styles live in style.css */
 
 .overview-content {
     max-width: 900px;
@@ -178,10 +175,65 @@
 .service-detail {
     position: relative;
     padding: var(--spacing-xl) 0;
+    background-color: var(--section-muted-bg);
 }
 
-.service-detail.alt-bg {
-    background-color: #f9f9f9;
+.service-detail--compact {
+    padding: 56px 0;
+}
+
+.service-detail--compact .section-header {
+    margin-bottom: 1.75rem;
+}
+
+.service-detail--compact .section-header .section-intro {
+    margin-top: 0.75rem;
+}
+
+.service-detail--compact .service-content {
+    gap: 2rem;
+    align-items: center;
+}
+
+.service-detail--compact .feature-grid {
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.service-detail--compact .feature-item {
+    padding: 1.15rem 1rem;
+}
+
+.service-detail--compact .feature-item i {
+    font-size: 1.45rem;
+    margin-bottom: 0.45rem;
+}
+
+.service-detail--compact .feature-item h4 {
+    margin-bottom: 0.35rem;
+}
+
+.service-detail--compact .ideal-for {
+    margin: 0.85rem 0 1rem;
+    gap: 8px;
+}
+
+.service-detail--compact .ideal-for span {
+    padding: 4px 12px;
+    font-size: 0.85rem;
+}
+
+.service-detail--compact .service-info > .cta-button {
+    margin-top: 0.25rem;
+}
+
+.service-detail--compact .service-image {
+    max-height: 380px;
+}
+
+.service-detail--compact .service-image img {
+    height: 100%;
+    min-height: 280px;
 }
 
 .service-content {
@@ -206,7 +258,7 @@
 }
 
 .service-detail .service-info > .cta-button {
-    margin-top: 0.5rem;
+    margin-top: 1rem;
 }
 
 .service-image {
@@ -220,9 +272,16 @@
 
 .service-image img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     display: block;
     transition: transform 0.3s ease;
+}
+
+@media (max-width: 992px) {
+    .service-image img {
+        height: auto;
+    }
 }
 
 .service-image:hover {
@@ -266,7 +325,7 @@
 }
 
 .feature-item {
-    background-color: #ffffff;
+    background-color: var(--surface-color);
     border-radius: var(--border-radius);
     padding: var(--spacing-md);
     box-shadow: var(--box-shadow-light);
@@ -320,68 +379,11 @@
     color: var(--primary-color);
 }
 
-/* FAQ Section */
-.faq-section {
-    padding: var(--spacing-xl) 0;
-}
-
-.faq-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: var(--spacing-md);
-    text-align: center;
-    position: relative;
-}
-
-.faq-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.faq-item {
-    margin-bottom: var(--spacing-sm);
-    border-radius: var(--border-radius);
-    background-color: var(--light-color);
-    box-shadow: var(--box-shadow-light);
-}
-
-.faq-question {
-    padding: var(--spacing-sm);
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.faq-question h3 {
-    font-size: 1.1rem;
-    font-weight: 500;
-    margin: 0;
-    padding-right: var(--spacing-sm);
-}
-
-.faq-toggle {
-    font-size: 1rem;
-}
-
-.faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    padding: 0 var(--spacing-sm);
-}
-
-.faq-answer p {
-    padding-bottom: var(--spacing-sm);
-    line-height: 1.6;
-}
-
-.faq-item.active .faq-answer {
-    max-height: 500px;
-}
+/* FAQ styles live in contact.css (contact page is the only FAQ user) */
 
 /* Icon-specific styling for services */
 .service-nav-item[href="#real-estate"] .service-icon {
-    color: #2196F3;
+    color: var(--primary-color);
 }
 
 .service-nav-item[href="#events"] .service-icon {
@@ -406,58 +408,7 @@
     border-color: #F44336;
 }
 
-/* Call to Action Section */
-.cta-section {
-    background: linear-gradient(to right, var(--primary-color), var(--primary-dark));
-    color: white;
-    padding: 80px 0;
-    text-align: center;
-}
-
-.cta-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.cta-content h2 {
-    font-size: 2.2rem;
-    margin-bottom: 20px;
-}
-
-.cta-content p {
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-    opacity: 0.9;
-}
-
-.cta-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.cta-section .cta-button {
-    background-color: white;
-    color: var(--primary-color);
-    border: 2px solid white;
-}
-
-.cta-section .cta-button:hover {
-    background-color: transparent;
-    color: white;
-}
-
-.cta-section .cta-button-secondary {
-    background-color: transparent;
-    color: white;
-    border: 2px solid white;
-}
-
-.cta-section .cta-button-secondary:hover {
-    background-color: white;
-    color: var(--primary-color);
-}
+/* Shared .cta-section styles live in style.css */
 
 /* Responsive Styles */
 @media (max-width: 992px) {
@@ -472,9 +423,14 @@
     .service-info, .service-image {
         width: 100%;
     }
-    
-    .section-header h2 {
-        font-size: 1.8rem;
+
+    .service-detail--compact .service-image {
+        max-height: none;
+    }
+
+    .service-detail--compact .service-image img {
+        min-height: 0;
+        height: auto;
     }
     
     .feature-grid {
@@ -483,103 +439,16 @@
 }
 
 @media (max-width: 576px) {
-    .section-header {
-        margin-bottom: 2rem;
+    .service-detail--compact {
+        padding: 44px 0;
     }
 
-    .section-header h2 {
-        font-size: 1.6rem;
-    }
-    
     .feature-grid {
         grid-template-columns: 1fr;
     }
-    
-    .cta-content h2 {
-        font-size: 1.8rem;
-    }
 }
 
-/* Service Page Footer Layout */
-footer .footer-content:has(.footer-column) {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 30px;
-    text-align: left;
-}
-
-footer .footer-content:has(.footer-column) .footer-logo {
-    flex: 1 1 200px;
-    text-align: left;
-    margin-bottom: 0;
-}
-
-footer .footer-content:has(.footer-column) .footer-logo img {
-    margin: 0;
-    height: 80px;
-    max-width: 480px;
-    opacity: 0.95;
-}
-
-footer .footer-content:has(.footer-column) .footer-links {
-    flex: 2 1 300px;
-    justify-content: flex-start;
-    text-align: left;
-    max-width: none;
-}
-
-footer .footer-content:has(.footer-column) .footer-column {
-    flex: 1;
-    min-width: 140px;
-}
-
-footer .footer-content:has(.footer-column) .footer-contact {
-    flex: 1 1 200px;
-    text-align: left;
-}
-
-footer .footer-content:has(.footer-column) .footer-contact h3 {
-    margin-bottom: 10px;
-    font-weight: bold;
-    font-size: 16px;
-    text-transform: uppercase;
-}
-
-footer .footer-content:has(.footer-column) .footer-contact p {
-    margin-bottom: 8px;
-    opacity: 0.8;
-}
-
-footer .footer-content:has(.footer-column) .footer-contact p i {
-    margin-right: 8px;
-    color: var(--primary-color);
-}
-
-footer .footer-content:has(.footer-column) .social-links {
-    display: flex;
-    gap: 10px;
-    margin-top: 12px;
-}
-
-footer .footer-content:has(.footer-column) .social-links a {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    background: #222;
-    color: #ddd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    transition: background 0.3s, color 0.3s;
-}
-
-footer .footer-content:has(.footer-column) .social-links a:hover {
-    background: var(--primary-color);
-    color: #fff;
-}
+/* Footer column layout lives in style.css */
 
 @media (max-width: 768px) {
     .page-banner--intro .banner-content--extended {
@@ -590,30 +459,5 @@ footer .footer-content:has(.footer-column) .social-links a:hover {
     .page-banner--intro .banner-content--extended h1::after {
         width: 48px;
         margin-top: 0.5rem;
-    }
-
-    footer .footer-content:has(.footer-column) {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    footer .footer-content:has(.footer-column) .footer-logo,
-    footer .footer-content:has(.footer-column) .footer-links,
-    footer .footer-content:has(.footer-column) .footer-contact {
-        flex: 1 1 100%;
-        text-align: center;
-    }
-
-    footer .footer-content:has(.footer-column) .footer-logo img {
-        margin: 0 auto;
-    }
-
-    footer .footer-content:has(.footer-column) .footer-links {
-        justify-content: center;
-    }
-
-    footer .footer-content:has(.footer-column) .social-links {
-        justify-content: center;
     }
 }

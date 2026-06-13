@@ -9,24 +9,9 @@
     padding-top: 0;
     color: white;
     z-index: 1;
+    background:
+        url('../images/commercial/rva-skyline.jpeg') center center / cover no-repeat;
     background-color: #1a1a1a;
-}
-
-.hero-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-    filter: brightness(0.9); /* Slightly darker for better text contrast */
-    opacity: 0;
-    transition: opacity 0.8s ease-in-out;
-}
-
-.hero-video.is-ready {
-    opacity: 1;
 }
 
 .hero-overlay {
@@ -51,10 +36,6 @@
     max-width: 700px;
     padding-top: 0;
     gap: 1.5rem;
-}
-
-.hero-content h2:after {
-    display: none;
 }
 
 .hero-content h2,
@@ -143,8 +124,8 @@
 
 /* Services Preview Section */
 .services-preview {
-    padding: 72px 0 80px;
-    background-color: #f5f7fa;
+    padding: 80px 0 88px;
+    background-color: var(--section-muted-bg);
 }
 
 .services-preview-inner {
@@ -156,135 +137,97 @@
 
 .services-preview-header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
 }
 
 .services-preview h2,
 .services-preview .section-title {
-    color: var(--dark-color);
+    color: var(--secondary-color);
     font-size: 2.5rem;
     margin-bottom: 0;
 }
 
 .services-preview h2::after,
 .services-preview .section-title::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background-color: var(--primary-color);
-    margin: 0.75rem auto 0;
-    position: static;
-    transform: none;
+    display: none;
 }
 
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 28px;
+    gap: clamp(28px, 3vw, 44px);
 }
 
 .service-card {
-    background-color: #fff;
-    border-radius: 12px;
-    padding: 32px 28px;
+    background: transparent;
+    border-radius: 0;
+    overflow: visible;
     text-align: center;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: none;
+    transition: opacity 0.3s ease;
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    text-decoration: none;
+    color: inherit;
 }
 
 .service-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+    transform: none;
+    box-shadow: none;
+    opacity: 0.92;
 }
 
-.service-icon {
-    width: 72px;
-    height: 72px;
-    margin: 0 auto 18px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-    color: #fff;
+.service-card-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
     flex-shrink: 0;
+    border-radius: 14px;
+    margin-bottom: 1.35rem;
 }
 
-.service-card h3 {
-    font-size: 1.25rem;
-    margin-bottom: 12px;
-    font-weight: 600;
-    color: var(--dark-color);
+.service-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
 }
 
-.service-card p {
-    font-size: 0.95rem;
-    color: var(--text-color);
-    margin-bottom: 20px;
-    line-height: 1.6;
+.service-card:hover .service-card-image img {
+    transform: scale(1.03);
+}
+
+.service-card-body {
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     flex: 1;
 }
 
+.service-card h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.15rem, 1.6vw, 1.45rem);
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    line-height: 1.35;
+    max-width: 22ch;
+}
+
+.service-card p {
+    font-size: 0.98rem;
+    color: #333;
+    margin-bottom: 0;
+    line-height: 1.65;
+    flex: 1;
+    max-width: 34ch;
+}
+
 .service-link {
-    display: inline-block;
-    color: var(--primary-color);
-    font-weight: 500;
-    text-decoration: none;
-    position: relative;
-    transition: color 0.3s ease;
-    margin-top: auto;
-}
-
-.service-link:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: var(--primary-color);
-    transform: scaleX(0);
-    transform-origin: bottom right;
-    transition: transform 0.3s ease;
-}
-
-.service-link:hover {
-    color: var(--primary-dark);
-}
-
-.service-link:hover:after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-}
-
-/* Service Icon Colors */
-.real-estate-icon {
-    background: linear-gradient(135deg, #ff7e5f, #feb47b);
-}
-
-.events-icon {
-    background: linear-gradient(135deg, #7f7fd5, #86a8e7);
-}
-
-.mapping-icon {
-    background: linear-gradient(135deg, #36d1dc, #5b86e5);
-}
-
-.agriculture-icon {
-    background: linear-gradient(135deg, #56ab2f, #a8e063);
-}
-
-.infrastructure-icon {
-    background: linear-gradient(135deg, #4568dc, #b06ab3);
-}
-
-.tourism-icon {
-    background: linear-gradient(135deg, #ff5f6d, #ffc371);
+    display: none;
 }
 
 /* Portfolio Preview Section */
@@ -447,41 +390,7 @@
     line-height: 1.6;
 }
 
-/* CTA Section */
-.cta-section {
-    background-color: var(--primary-color);
-    padding: var(--spacing-xl) 0;
-    text-align: center;
-}
-
-.cta-content {
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.cta-content h2 {
-    color: var(--light-color);
-    margin-bottom: var(--spacing-sm);
-}
-
-.cta-content h2:after {
-    display: none;
-}
-
-.cta-content p {
-    color: var(--light-color);
-    margin-bottom: var(--spacing-lg);
-    font-size: 1.1rem;
-}
-
-/* Real Estate Service Card background image */
-.service-card.real-estate {
-    background-color: transparent;
-    background-image: url('../images/leafield.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
+/* Shared .cta-section styles live in style.css */
 
 /* ===== Mobile ===== */
 @media screen and (max-width: 768px) {
@@ -554,11 +463,16 @@
 
     .services-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 2.5rem;
     }
 
-    .service-card {
-        padding: 24px 20px;
+    .service-card-body {
+        padding: 0 0.25rem;
+    }
+
+    .service-card h3,
+    .service-card p {
+        max-width: none;
     }
 }
 

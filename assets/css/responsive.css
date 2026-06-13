@@ -1,44 +1,5 @@
 /* Responsive Styles */
 
-/* Services section — override stale cached/global h2 underline styles */
-.services-preview-header {
-    text-align: center;
-}
-
-.services-preview-header h2,
-.services-preview-header .section-title {
-    text-align: center;
-    margin-bottom: 0;
-}
-
-.services-preview-header h2::after,
-.services-preview-header .section-title::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background-color: var(--primary-color);
-    margin: 0.75rem auto 0;
-    position: static;
-    left: auto;
-    bottom: auto;
-    transform: none;
-}
-
-/* Service detail pages — single centered underline, no global h2:after drift */
-.service-detail .section-header.centered h2::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background-color: var(--primary-color);
-    margin: 0.75rem auto 0;
-    position: static;
-    left: auto;
-    bottom: auto;
-    transform: none;
-}
-
 /* Tablets and smaller */
 @media screen and (max-width: 992px) {
     html {

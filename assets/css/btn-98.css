@@ -11,7 +11,7 @@
 .btn-98 {
   -webkit-tap-highlight-color: transparent;
   -webkit-appearance: button;
-  background-color: #007BFF;
+  background-color: var(--primary-color);
   background-image: none;
   color: #fff;
   cursor: pointer;
@@ -39,7 +39,7 @@
 }
 .btn-98 {
   --thickness: 4px;
-  background-color: #007BFF;
+  background-color: var(--primary-color);
   box-sizing: border-box;
   -webkit-clip-path: polygon(
     0 0,

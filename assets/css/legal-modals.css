@@ -29,7 +29,7 @@
     position: relative;
     width: 100%;
     max-height: min(85vh, 800px);
-    background: #fff;
+    background: var(--surface-color);
     color: #333;
     border-radius: 8px;
     box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);

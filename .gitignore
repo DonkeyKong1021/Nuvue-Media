@@ -4,3 +4,6 @@ node_modules/
 dist/
 .env
 .env.*
+
+# GitHub rejects files over 100 MB; keep large demo videos local or use Git LFS / external hosting
+assets/videos/Real-Estate-Demo.mp4

@@ -59,27 +59,6 @@ function initHeroSlideshow() {
 document.addEventListener("DOMContentLoaded", () => {
   initHeroSlideshow();
 
-  const heroVideo = document.querySelector(".hero-video");
-  const heroSource = heroVideo?.querySelector("source[data-src]");
-
-  if (heroVideo && heroSource) {
-    const revealHeroVideo = () => {
-      heroVideo.classList.add("is-ready");
-    };
-
-    heroVideo.addEventListener("canplay", revealHeroVideo, { once: true });
-
-    const loadHeroVideo = () => {
-      if (heroSource.src || heroVideo.dataset.loaded === "true") return;
-      heroSource.src = heroSource.dataset.src;
-      heroVideo.dataset.loaded = "true";
-      heroVideo.load();
-      heroVideo.play().catch(() => {});
-    };
-
-    loadHeroVideo();
-  }
-
   // Testimonial slider
   const slides = document.querySelectorAll(".testimonial-slide");
   const dots = document.querySelectorAll(".dot");
@@ -153,14 +132,31 @@ document.addEventListener("DOMContentLoaded", () => {
       clearVideo();
       const player = document.createElement("div");
       player.className = "video-modal-player";
-      const video = document.createElement("video");
-      video.controls = true;
-      video.autoplay = true;
-      video.playsInline = true;
-      video.src = "assets/images/folly-beach/folly-beach-loop.mp4";
-      player.appendChild(video);
+      const videoSrc = viewDemoBtn.dataset.videoSrc;
+
+      if (videoSrc) {
+        const video = document.createElement("video");
+        video.src = videoSrc;
+        video.controls = true;
+        video.playsInline = true;
+        video.autoplay = true;
+        video.setAttribute("title", "NuVue Media demo video");
+        player.appendChild(video);
+      } else {
+        const videoId = viewDemoBtn.dataset.youtubeId || "mwdwAVuXLNQ";
+        const iframe = document.createElement("iframe");
+        iframe.src = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&autoplay=1`;
+        iframe.setAttribute("title", "NuVue Media demo video");
+        iframe.setAttribute("frameborder", "0");
+        iframe.setAttribute(
+          "allow",
+          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        );
+        iframe.setAttribute("allowfullscreen", "");
+        player.appendChild(iframe);
+      }
+
       videoContainer.appendChild(player);
-      video.play().catch(() => {});
     };
 
     viewDemoBtn.addEventListener("click", (e) => {

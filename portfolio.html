@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Portfolio | NuVue Media LLC</title>
     <meta name="description" content="Browse NuVue Media LLC aerial photography and videography — weddings, real estate, commercial, and scenic projects in Richmond, VA.">
-    <link rel="stylesheet" href="assets/css/style.css?v=20260607h">
+    <link rel="stylesheet" href="assets/css/style.css?v=20260613d">
     <link rel="stylesheet" href="assets/css/legal-modals.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/responsive.css?v=20260611">
     <link rel="icon" href="assets/images/nuvue-logos/nuvue-transparent-black.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/headers.css?v=20260607f">
-    <link rel="stylesheet" href="assets/css/portfolio.css?v=20260607h">
+    <link rel="stylesheet" href="assets/css/headers.css?v=20260613b">
+    <link rel="stylesheet" href="assets/css/portfolio.css?v=20260613d">
 </head>
 <body class="portfolio-page">
     <header class="secondary-header">
@@ -30,7 +30,7 @@
                         <a href="portal.html" class="cta-button-main" aria-label="Client Portal">Client Portal</a>
                     </div>
                     <nav>
-                        <ul class="nav-links">
+                        <ul class="nav-links" id="site-nav">
                             <li><a href="index.html">Home</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle">Services <i class="fas fa-chevron-down"></i></a>
@@ -42,38 +42,26 @@
                             </li>
                             <li><a href="portfolio.html" class="active">Portfolio</a></li>
                             <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
                         </ul>
-                        <div class="hamburger">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
                     </nav>
+                    <button type="button" class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
                 </div>
             </div>
         </div>
     </header>
 
     <main>
-        <section class="portfolio-intro">
+        <section class="portfolio-spotlight">
             <div class="container">
-                <p class="portfolio-eyebrow">Our Work</p>
-                <h1>Portfolio</h1>
-                <p class="portfolio-lead">Aerial photography and videography across weddings, real estate, commercial, and scenic projects throughout Virginia and beyond.</p>
-                <div class="portfolio-stats" aria-label="Portfolio highlights">
-                    <div class="portfolio-stat"><strong>11</strong><span>Photos</span></div>
-                    <div class="portfolio-stat"><strong>2</strong><span>Demos</span></div>
-                    <div class="portfolio-stat"><strong>4</strong><span>Categories</span></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="portfolio-spotlight section-padding">
-            <div class="container">
-                <div class="section-header centered">
-                    <h2>Spotlight</h2>
-                    <p>Recent projects we're proud to showcase</p>
-                </div>
+                <!-- <header class="spotlight-header">
+                    <p class="spotlight-eyebrow">Spotlight</p>
+                    <p class="spotlight-subtitle">Recent projects we're proud to showcase</p>
+                </header> -->
                 <div class="spotlight-grid">
                     <article class="spotlight-card">
                         <div class="spotlight-card-media">
@@ -116,14 +104,11 @@
                 </div>
 
                 <div class="portfolio-toolbar">
-                    <div class="portfolio-toolbar-inner">
-                        <div class="filter-buttons">
-                            <button type="button" class="filter-btn active" data-filter="all">All</button>
-                            <button type="button" class="filter-btn" data-filter="weddings">Weddings</button>
-                            <button type="button" class="filter-btn" data-filter="real-estate">Real Estate</button>
-                            <button type="button" class="filter-btn" data-filter="commercial">Commercial</button>
-                        </div>
-                        <p class="portfolio-results" id="portfolioResults" aria-live="polite"></p>
+                    <div class="filter-buttons">
+                        <button type="button" class="filter-btn active" data-filter="all">All</button>
+                        <button type="button" class="filter-btn" data-filter="weddings">Weddings</button>
+                        <button type="button" class="filter-btn" data-filter="real-estate">Real Estate</button>
+                        <button type="button" class="filter-btn" data-filter="commercial">Commercial</button>
                     </div>
                 </div>
 
@@ -299,6 +284,34 @@
                 <div class="grid-container demos-grid" data-gallery="demos">
                     <article class="portfolio-item portfolio-item--video" data-category="demos" data-media="video">
                         <span class="portfolio-item-badge">Demo</span>
+                        <a href="assets/videos/Commercial-Demo.mp4" data-type="video" data-title="Commercial Demo">
+                            <video muted playsinline preload="metadata" poster="assets/images/commercial/train-bridge-sunset.jpeg" aria-label="Commercial demo preview"></video>
+                            <span class="portfolio-play-icon" aria-hidden="true"><i class="fas fa-play"></i></span>
+                            <span class="overlay-action" aria-hidden="true"><i class="fas fa-play"></i></span>
+                            <div class="item-overlay">
+                                <div class="overlay-content">
+                                    <h3>Commercial Demo</h3>
+                                    <p>Demo</p>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="portfolio-item portfolio-item--video" data-category="demos" data-media="video">
+                        <span class="portfolio-item-badge">Demo</span>
+                        <a href="assets/videos/Real-Estate-Demo.mp4" data-type="video" data-title="Real Estate Demo">
+                            <video muted playsinline preload="metadata" poster="assets/images/real-estate/snowy-house-front.jpeg" aria-label="Real estate demo preview"></video>
+                            <span class="portfolio-play-icon" aria-hidden="true"><i class="fas fa-play"></i></span>
+                            <span class="overlay-action" aria-hidden="true"><i class="fas fa-play"></i></span>
+                            <div class="item-overlay">
+                                <div class="overlay-content">
+                                    <h3>Real Estate Demo</h3>
+                                    <p>Demo</p>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="portfolio-item portfolio-item--video" data-category="demos" data-media="video">
+                        <span class="portfolio-item-badge">Demo</span>
                         <a href="assets/videos/Drone%20Demo.mp4" data-type="video" data-title="Drone Demo Reel">
                             <video muted playsinline preload="metadata" poster="assets/videos/DemoVideo.jpeg" aria-label="Drone demo reel preview"></video>
                             <span class="portfolio-play-icon" aria-hidden="true"><i class="fas fa-play"></i></span>
@@ -345,32 +358,37 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <img src="assets/images/nuvue-logos/nuvue-header-white-web.png" alt="NuVue Media LLC Logo" height="88" width="269" loading="lazy" decoding="async">
-                    <p>Elevating your vision with stunning aerial imagery.</p>
+                    <p>Professional drone services in Richmond, VA</p>
                 </div>
                 <div class="footer-links">
-                    <div class="footer-nav">
-                        <h3>Navigate</h3>
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="portal.html">Client Portal</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Services</h3>
                         <ul>
                             <li><a href="services/real-estate.html">Real Estate</a></li>
                             <li><a href="services/events-weddings.html">Weddings & Events</a></li>
                             <li><a href="services/commercial.html">Commercial</a></li>
                         </ul>
                     </div>
-                    <div class="footer-contact">
-                        <h3>Contact Us</h3>
-                        <ul>
-                            <li><i class="fas fa-phone"></i> (804) 955-9107</li>
-                            <li><i class="fas fa-envelope"></i> nuvuetech@gmail.com</li>
-                            <li><i class="fas fa-map-marker-alt"></i> Richmond, VA</li>
-                        </ul>
-                    </div>
-                    <div class="footer-social">
-                        <h3>Follow Us</h3>
-                        <div class="social-icons">
-                            <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                            <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        </div>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Richmond, VA</p>
+                    <p><i class="fas fa-envelope"></i> nuvuetech@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> (804) 955-9107</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
@@ -388,8 +406,8 @@
         </div>
     </div>
 
-    <script src="assets/js/headers.js"></script>
+    <script src="assets/js/headers.js?v=20260613b"></script>
     <script src="assets/js/legal-modals.js"></script>
-    <script src="assets/js/portfolio.js?v=20260607h"></script>
+    <script src="assets/js/portfolio.js?v=20260613"></script>
 </body>
 </html>

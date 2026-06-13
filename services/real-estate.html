@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Real Estate Aerial Media | NuVue Media LLC</title>
     <meta name="description" content="Professional drone photography and videography services for real estate properties in Richmond, VA. Elevate your property listings with stunning aerial imagery.">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css?v=20260613d">
     <link rel="stylesheet" href="../assets/css/legal-modals.css">
-    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css?v=20260611">
     <link rel="icon" href="../assets/images/nuvue-logos/nuvue-transparent-black.png">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -16,10 +16,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <!-- Link to the secondary header CSS -->
-    <link rel="stylesheet" href="../assets/css/headers.css?v=20260607f">
+    <link rel="stylesheet" href="../assets/css/headers.css?v=20260613b">
     <!-- Link to the services page specific CSS -->
-    <link rel="stylesheet" href="../assets/css/services-page.css?v=20260607">
-    <link rel="preload" as="image" href="../assets/images/real-estate/snowy-house.jpeg">
+    <link rel="stylesheet" href="../assets/css/services-page.css?v=20260613g">
+    <link rel="preload" as="video" href="../assets/videos/Real-Estate-Demo.mp4">
 </head>
 <body>
     <header class="secondary-header">
@@ -35,7 +35,7 @@
                         <a href="../portal.html" class="cta-button-main" aria-label="Client Portal">Client Portal</a>
                     </div>
                     <nav>
-                        <ul class="nav-links">
+                        <ul class="nav-links" id="site-nav">
                             <li><a href="../index.html">Home</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle">Services <i class="fas fa-chevron-down"></i></a>
@@ -47,13 +47,14 @@
                             </li>
                             <li><a href="../portfolio.html">Portfolio</a></li>
                             <li><a href="../about.html">About Us</a></li>
+                            <li><a href="../contact.html">Contact Us</a></li>
                         </ul>
-                        <div class="hamburger">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
                     </nav>
+                    <button type="button" class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -64,9 +65,13 @@
             <div class="banner-overlay"></div>
             <div class="container">
                 <div class="banner-content banner-content--extended">
-                    <h1>Real Estate Aerial Media</h1>
-                    <p class="banner-lead">Help buyers see the full story of every property</p>
-                    <p class="banner-description">From residential listings to commercial buildings, we deliver polished media agents can drop straight into MLS, websites, and social posts.</p>
+                    <h1>Real Estate</h1>
+                    <p class="banner-lead"><b>NuVue helps buyers see the full story behind every property</b></p>
+                    <p class="banner-description">We deliver polished media for high performing marketing materials.</p>
+                    <div class="button-group">
+                        <a href="#" class="cta-button-secondary" id="viewDemoBtn" data-video-src="../assets/videos/Real-Estate-Demo.mp4">Demo Video</a>
+                        <a href="../contact.html" class="cta-button">Get a Quote</a>
+                    </div>
                 </div>
             </div>
             <div id="page-hero-bottom" class="page-hero-bottom"></div>
@@ -78,12 +83,11 @@
         </section>
 
         <!-- Property Showcase Section -->
-        <section class="service-detail section-padding alt-bg" id="property-showcase">
+        <section class="service-detail service-detail--compact section-padding alt-bg" id="property-showcase">
             <div class="container">
                 <div class="section-header centered">
                     <h2>Aerial Photography & Video</h2>
-                    <p>Everything you need to market a listing from above</p>
-                    <p class="section-intro">We photograph and film each property from elevated angles that highlight architecture, lot size, landscaping, and neighborhood context. Deliverables are edited, color-corrected, and formatted for MLS uploads, property websites, and social campaigns.</p>
+                    <p class="section-intro">Elevated photo and video for MLS, property sites, and social — edited, color-corrected, and ready to publish.</p>
                 </div>
                 <div class="service-content">
                     <div class="service-info">
@@ -92,7 +96,7 @@
                             <div class="feature-item">
                                 <i class="fas fa-camera"></i>
                                 <h4>Exterior Perspectives</h4>
-                                <p>Showcase the full property and surroundings</p>
+                                <p>Showcase the full property and surrounding areas</p>
                             </div>
                             <div class="feature-item">
                                 <i class="fas fa-home"></i>
@@ -118,8 +122,6 @@
                             <span>Real Estate Agencies</span>
                             <span>Individual Agents</span>
                         </div>
-                        
-                        <a href="../contact.html" class="cta-button">Request a Quote</a>
                     </div>
                     <div class="service-image">
                         <img src="../assets/images/real-estate/scenery.png" alt="Aerial property showcase photography" loading="lazy" decoding="async">
@@ -155,6 +157,7 @@
                         <h3>Quick Links</h3>
                         <ul>
                             <li><a href="../index.html">Home</a></li>
+                            <li><a href="../about.html">About Us</a></li>
                             <li><a href="../portfolio.html">Portfolio</a></li>
                             <li><a href="../contact.html">Contact</a></li>
                             <li><a href="../portal.html">Client Portal</a></li>
@@ -172,7 +175,8 @@
                 <div class="footer-contact">
                     <h3>Contact Us</h3>
                     <p><i class="fas fa-map-marker-alt"></i> Richmond, VA</p>
-                    <p><i class="fas fa-envelope"></i> prestigewwaerial@gmail.com</p>
+                    <p><i class="fas fa-envelope"></i> nuvuetech@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> (804) 955-9107</p>
                     <div class="social-links">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -187,9 +191,16 @@
         </div>
     </footer>
 
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-content">
+            <span class="video-modal-close" id="videoModalClose">&times;</span>
+            <div id="videoContainer"></div>
+        </div>
+    </div>
+
     <!-- Scripts -->
-    <script src="../assets/js/main.js"></script>
-    <script src="../assets/js/headers.js"></script>
+    <script src="../assets/js/main.js?v=20260613b"></script>
+    <script src="../assets/js/headers.js?v=20260613b"></script>
     <script src="../assets/js/legal-modals.js"></script>
 </body>
 </html> 

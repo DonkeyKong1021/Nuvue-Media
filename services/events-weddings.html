@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Weddings & Events | NuVue Media LLC</title>
     <meta name="description" content="Professional drone photography and videography services for weddings, festivals, and special events in Richmond, VA. Capture your event from stunning aerial perspectives.">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css?v=20260613d">
     <link rel="stylesheet" href="../assets/css/legal-modals.css">
-    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css?v=20260611">
     <link rel="icon" href="../assets/images/nuvue-logos/nuvue-transparent-black.png">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -16,11 +16,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <!-- Link to the secondary header CSS -->
-    <link rel="stylesheet" href="../assets/css/headers.css?v=20260607f">
+    <link rel="stylesheet" href="../assets/css/headers.css?v=20260613b">
     <!-- Link to the services page specific CSS -->
-    <link rel="stylesheet" href="../assets/css/services-page.css?v=20260607">
+    <link rel="stylesheet" href="../assets/css/services-page.css?v=20260613g">
     <link rel="preload" as="image" href="../assets/images/weddings/wedding-venue.jpeg">
-    <link rel="preload" as="image" href="../assets/images/weddings/valley.jpeg">
 </head>
 <body>
     <header class="secondary-header">
@@ -36,7 +35,7 @@
                         <a href="../portal.html" class="cta-button-main" aria-label="Client Portal">Client Portal</a>
                     </div>
                     <nav>
-                        <ul class="nav-links">
+                        <ul class="nav-links" id="site-nav">
                             <li><a href="../index.html">Home</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle">Services <i class="fas fa-chevron-down"></i></a>
@@ -48,23 +47,20 @@
                             </li>
                             <li><a href="../portfolio.html">Portfolio</a></li>
                             <li><a href="../about.html">About Us</a></li>
+                            <li><a href="../contact.html">Contact Us</a></li>
                         </ul>
-                        <div class="hamburger">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
                     </nav>
+                    <button type="button" class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
                 </div>
             </div>
         </div>
     </header>
     <main>
-        <section class="page-banner page-hero--slideshow page-banner--intro" data-slideshow-images="../assets/images/weddings/wedding-venue.jpeg,../assets/images/weddings/valley.jpeg">
-            <div class="page-hero-slides" aria-hidden="true">
-                <div class="page-hero-slide is-active no-transition" style="background-image: url('../assets/images/weddings/wedding-venue.jpeg')"></div>
-                <div class="page-hero-slide" style="background-image: url('../assets/images/weddings/valley.jpeg')"></div>
-            </div>
+        <section class="page-banner page-banner--weddings page-banner--intro">
             <div class="banner-overlay"></div>
             <div class="container">
                 <div class="banner-content banner-content--extended">
@@ -72,6 +68,7 @@
                     <p class="banner-lead">Aerial photo and video that complements your main photographer</p>
                     <p class="banner-description">We work alongside your existing photo or video team to add cinematic establishing shots, venue reveals, and crowd perspectives that make your final gallery more memorable.</p>
                     <div class="button-group">
+                        <a href="#" class="cta-button-secondary" id="viewDemoBtn" data-youtube-id="uQPXx1ccGYI">Demo Video</a>
                         <a href="../contact.html" class="cta-button">Get a Quote</a>
                         <a href="../portfolio.html" class="cta-button-secondary">View Portfolio</a>
                     </div>
@@ -86,12 +83,11 @@
         </section>
 
         <!-- Wedding Section -->
-        <section class="service-detail section-padding alt-bg" id="wedding-coverage">
+        <section class="service-detail service-detail--compact section-padding alt-bg" id="wedding-coverage">
             <div class="container">
                 <div class="section-header centered">
                     <h2>What We Capture</h2>
-                    <p>Venue reveals, ceremony highlights, and celebration footage</p>
-                    <p class="section-intro">Our wedding aerial coverage services add a breathtaking dimension to your wedding photography and videography. We capture stunning aerial views of your venue, dramatic establishing shots, and unique perspectives of key moments that complement your primary photography team. Our coordinated drone choreography ensures we capture cinematic moments without being intrusive.</p>
+                    <p class="section-intro">Venue reveals, ceremony highlights, and celebration footage — cinematic aerial perspectives that complement your primary photo and video team.</p>
                 </div>
                 <div class="service-content">
                     <div class="service-info">
@@ -126,8 +122,6 @@
                             <span>Destination Weddings</span>
                             <span>Wedding Videography</span>
                         </div>
-                        
-                        <a href="../contact.html" class="cta-button">Request Wedding Information</a>
                     </div>
                     <div class="service-image">
                         <img src="../assets/images/weddings/wedding-venue.jpeg" alt="Aerial view of a wedding venue" loading="lazy" decoding="async">
@@ -163,6 +157,7 @@
                         <h3>Quick Links</h3>
                         <ul>
                             <li><a href="../index.html">Home</a></li>
+                            <li><a href="../about.html">About Us</a></li>
                             <li><a href="../portfolio.html">Portfolio</a></li>
                             <li><a href="../contact.html">Contact</a></li>
                             <li><a href="../portal.html">Client Portal</a></li>
@@ -180,7 +175,8 @@
                 <div class="footer-contact">
                     <h3>Contact Us</h3>
                     <p><i class="fas fa-map-marker-alt"></i> Richmond, VA</p>
-                    <p><i class="fas fa-envelope"></i> prestigewwaerial@gmail.com</p>
+                    <p><i class="fas fa-envelope"></i> nuvuetech@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> (804) 955-9107</p>
                     <div class="social-links">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -195,9 +191,16 @@
         </div>
     </footer>
 
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-content">
+            <span class="video-modal-close" id="videoModalClose">&times;</span>
+            <div id="videoContainer"></div>
+        </div>
+    </div>
+
     <!-- Scripts -->
-    <script src="../assets/js/main.js"></script>
-    <script src="../assets/js/headers.js"></script>
+    <script src="../assets/js/main.js?v=20260613a"></script>
+    <script src="../assets/js/headers.js?v=20260613b"></script>
     <script src="../assets/js/legal-modals.js"></script>
 </body>
 </html> 

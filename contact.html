@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Contact Us | NuVue Media LLC</title>
     <meta name="description" content="Get in touch with NuVue Media LLC for professional drone photography and 360° virtual tour services.">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?v=20260613">
     <link rel="stylesheet" href="assets/css/legal-modals.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
-    <link rel="stylesheet" href="assets/css/btn-98.css">
+    <link rel="stylesheet" href="assets/css/responsive.css?v=20260611">
+    <link rel="stylesheet" href="assets/css/btn-98.css?v=20260611">
     <link rel="icon" href="assets/images/nuvue-logos/nuvue-transparent-black.png">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -17,13 +17,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <!-- Link to the header CSS -->
-    <link rel="stylesheet" href="assets/css/headers.css?v=20260607f">
+    <link rel="stylesheet" href="assets/css/headers.css?v=20260613b">
     <!-- Link to the contact page specific CSS -->
-    <link rel="stylesheet" href="assets/css/contact.css">
+    <link rel="stylesheet" href="assets/css/contact.css?v=20260613b">
     <!-- Adding custom form validation & submission script -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css">
 </head>
-<body>
+<body class="contact-page">
     <header class="secondary-header">
         <div class="container">
             <div class="header-content">
@@ -37,7 +37,7 @@
                         <a href="portal.html" class="cta-button-main" aria-label="Client Portal">Client Portal</a>
                     </div>
                     <nav>
-                        <ul class="nav-links">
+                        <ul class="nav-links" id="site-nav">
                             <li><a href="index.html">Home</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle">Services <i class="fas fa-chevron-down"></i></a>
@@ -49,40 +49,24 @@
                             </li>
                             <li><a href="portfolio.html">Portfolio</a></li>
                             <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html" class="active">Contact Us</a></li>
                         </ul>
-                        <div class="hamburger">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
                     </nav>
+                    <button type="button" class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
                 </div>
             </div>
         </div>
     </header>
     <main>
-        <section class="page-hero page-hero--weddings">
-            <div class="page-hero-overlay"></div>
-            <div class="container">
-                <div class="page-hero-content">
-                    <h1>Contact Us</h1>
-                    <p>Let's discuss your next aerial project</p>
-                </div>
-            </div>
-            <div class="page-hero-bottom"></div>
-            <div class="page-hero-scroll">
-                <a href="#page-hero-bottom" aria-label="Scroll to content">
-                    <i class="fas fa-chevron-down"></i>
-                </a>
-            </div>
-        </section>
-        
-        <!-- Contact Form Section -->
-        <section id="page-hero-bottom" class="contact-page section-padding">
+        <section class="contact-page section-padding">
             <div class="container">
                 <div class="contact-intro">
-                    <h2>Get In Touch</h2>
-                    <p>I'm ready to discuss how drone photography and videography can enhance your project. As a Richmond-based drone professional, I personally handle every aspect of your project.</p>
+                    <h1>Get In Touch</h1>
+                    <!-- <p>Let's discuss your next aerial project</p> -->
                 </div>
                 
                 <div class="contact-content">
@@ -92,7 +76,7 @@
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <h3>Email</h3>
-                                <p><a href="mailto:prestigewwaerial@gmail.com">prestigewwaerial@gmail.com</a></p>
+                                <p><a href="mailto:nuvuetech@gmail.com">nuvuetech@gmail.com</a></p>
                             </div>
                         </div>
                         <div class="info-item">
@@ -232,36 +216,37 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <img src="assets/images/nuvue-logos/nuvue-header-white-web.png" alt="NuVue Media LLC Logo" height="88" width="269" loading="lazy" decoding="async">
-                    <p>Elevating your vision with stunning aerial imagery and virtual tours.</p>
+                    <p>Professional drone services in Richmond, VA</p>
                 </div>
                 <div class="footer-links">
-                    <div class="footer-nav">
-                        <h3>Navigate</h3>
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
                         <ul>
                             <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="services.html">Services</a></li>
+                            <li><a href="about.html">About Us</a></li>
                             <li><a href="portfolio.html">Portfolio</a></li>
-                            <li><a href="testimonials.html">Testimonials <span class="coming-soon-tag">Coming Soon</span></a></li>
                             <li><a href="contact.html">Contact</a></li>
+                            <li><a href="portal.html">Client Portal</a></li>
                         </ul>
                     </div>
-                    <div class="footer-contact">
-                        <h3>Contact Us</h3>
+                    <div class="footer-column">
+                        <h3>Services</h3>
                         <ul>
-                            <li><i class="fas fa-phone"></i> (555) 123-4567</li>
-                            <li><i class="fas fa-envelope"></i> info@prestigeww.com</li>
-                            <li><i class="fas fa-map-marker-alt"></i> Richmond, VA</li>
+                            <li><a href="services/real-estate.html">Real Estate</a></li>
+                            <li><a href="services/events-weddings.html">Weddings & Events</a></li>
+                            <li><a href="services/commercial.html">Commercial</a></li>
                         </ul>
                     </div>
-                    <div class="footer-social">
-                        <h3>Follow Us</h3>
-                        <div class="social-icons">
-                            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        </div>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Richmond, VA</p>
+                    <p><i class="fas fa-envelope"></i> nuvuetech@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> (804) 955-9107</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
@@ -273,7 +258,7 @@
     </footer>
 
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/headers.js"></script>
+    <script src="assets/js/headers.js?v=20260613b"></script>
     <script src="assets/js/legal-modals.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
     <script src="assets/js/contact.js"></script>

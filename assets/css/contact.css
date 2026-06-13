@@ -1,6 +1,12 @@
 /* Contact Page */
-.contact-page {
-    padding-bottom: var(--spacing-xl);
+.contact-page .secondary-header {
+    background: rgba(17, 17, 17, 0.96);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.contact-page.section-padding {
+    padding-top: 240px;
 }
 
 .contact-intro {
@@ -8,10 +14,24 @@
     margin-bottom: var(--spacing-lg);
 }
 
-.contact-intro h2 {
+.contact-intro h1 {
     font-size: 2.5rem;
     margin-bottom: var(--spacing-sm);
     position: relative;
+}
+
+.contact-intro h1::after,
+.faq-section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+    margin: 0.75rem auto 0;
+}
+
+.faq-section h2 {
+    text-align: center;
 }
 
 .contact-intro p {
@@ -173,4 +193,72 @@
     height: 400px;
     border-radius: var(--border-radius);
     overflow: hidden;
+}
+
+/* FAQ Section */
+.faq-section {
+    padding: var(--spacing-xl) var(--spacing-sm);
+}
+
+.faq-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+    position: relative;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    margin-bottom: var(--spacing-sm);
+    border-radius: var(--border-radius);
+    background-color: var(--light-color);
+    box-shadow: var(--box-shadow-light);
+}
+
+.faq-question {
+    padding: var(--spacing-sm);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-question h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0;
+    padding-right: var(--spacing-sm);
+}
+
+.faq-toggle {
+    font-size: 1rem;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 var(--spacing-sm);
+}
+
+.faq-answer p {
+    padding-bottom: var(--spacing-sm);
+    line-height: 1.6;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+}
+
+@media (max-width: 768px) {
+    .contact-page.section-padding {
+        padding-top: 180px;
+    }
+
+    .contact-intro h1 {
+        font-size: 2rem;
+    }
 }

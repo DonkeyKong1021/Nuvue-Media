@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  initPortfolioStats();
   initPortfolioFilters();
   initPortfolioLightbox();
   initDemoVideoModal();
@@ -9,14 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function initPortfolioFilters() {
   const filterButtons = document.querySelectorAll('#portfolioGallery .filter-btn');
   const portfolioItems = document.querySelectorAll('#portfolioGallery .portfolio-item');
-  const resultsEl = document.getElementById('portfolioResults');
   const emptyEl = document.getElementById('portfolioEmpty');
-
-  const categoryLabels = {
-    weddings: 'Weddings',
-    'real-estate': 'Real Estate',
-    commercial: 'Commercial',
-  };
 
   const matchesFilter = (item, filterValue) => {
     if (filterValue === 'all') return true;
@@ -30,14 +22,6 @@ function initPortfolioFilters() {
       item.classList.toggle('is-filtered-out', !visible);
       if (visible) visibleCount += 1;
     });
-
-    if (resultsEl) {
-      const label = categoryLabels[filterValue] || 'All work';
-      resultsEl.textContent =
-        filterValue === 'all'
-          ? `Showing all ${visibleCount} items`
-          : `${visibleCount} ${label.toLowerCase()} item${visibleCount === 1 ? '' : 's'}`;
-    }
 
     if (emptyEl) {
       emptyEl.classList.toggle('is-visible', visibleCount === 0);
@@ -80,20 +64,6 @@ function initSpotlightVideo() {
     spotlightVideo.pause();
     spotlightVideo.currentTime = 0;
   });
-}
-
-function initPortfolioStats() {
-  const galleryItems = document.querySelectorAll('#portfolioGallery .portfolio-item');
-  const photos = document.querySelectorAll('#portfolioGallery .portfolio-item[data-media="photo"]').length;
-  const demos = document.querySelectorAll('.portfolio-demos .portfolio-item').length;
-  const categories = new Set(
-    Array.from(galleryItems).map((item) => item.getAttribute('data-category')).filter(Boolean)
-  ).size;
-
-  const stats = document.querySelectorAll('.portfolio-stat strong');
-  if (stats[0]) stats[0].textContent = String(photos);
-  if (stats[1]) stats[1].textContent = String(demos);
-  if (stats[2]) stats[2].textContent = String(categories);
 }
 
 function initDemoVideoModal() {

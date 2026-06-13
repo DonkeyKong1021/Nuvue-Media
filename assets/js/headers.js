@@ -48,20 +48,34 @@ document.addEventListener("DOMContentLoaded", () => {
   COMPACT_PORTAL_QUERY.addEventListener("change", syncPortalLabel);
 
   if (hamburger && navLinks) {
-    const closeMenu = () => {
-      navLinks.classList.remove("active");
-      hamburger.classList.remove("active");
-      document.body.classList.remove("menu-open");
+    const setMenuOpen = (open) => {
+      navLinks.classList.toggle("active", open);
+      hamburger.classList.toggle("active", open);
+      document.body.classList.toggle("menu-open", open);
+      hamburger.setAttribute("aria-expanded", open ? "true" : "false");
+      hamburger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
     };
 
-    hamburger.addEventListener("click", () => {
-      navLinks.classList.toggle("active");
-      hamburger.classList.toggle("active");
-      document.body.classList.toggle("menu-open");
+    const closeMenu = () => {
+      setMenuOpen(false);
+      header.querySelectorAll(".dropdown.active").forEach((item) => {
+        item.classList.remove("active");
+      });
+    };
+
+    hamburger.addEventListener("click", (event) => {
+      event.stopPropagation();
+      setMenuOpen(!navLinks.classList.contains("active"));
     });
 
     navLinks.querySelectorAll("a:not(.dropdown-toggle)").forEach((link) => {
       link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!isMobileNav() || !navLinks.classList.contains("active")) return;
+      if (event.target.closest(".header-actions")) return;
+      closeMenu();
     });
 
     document.addEventListener("keydown", (event) => {
@@ -82,6 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
     dropdownToggle.addEventListener("click", (e) => {
       if (!isMobileNav()) return;
       e.preventDefault();
+      e.stopPropagation();
       dropdownItems.forEach((item) => {
         if (item !== dropdown) item.classList.remove("active");
       });

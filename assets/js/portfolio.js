@@ -85,7 +85,8 @@ function initDemoVideoModal() {
     const player = document.createElement('div');
     player.className = 'video-modal-player';
     const iframe = document.createElement('iframe');
-    iframe.src = 'https://www.youtube.com/embed/uQPXx1ccGYI?rel=0&modestbranding=1';
+    iframe.src = `https://www.youtube.com/embed/uQPXx1ccGYI?rel=0&modestbranding=1&origin=${encodeURIComponent(window.location.origin)}`;
+    iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
     iframe.setAttribute('title', 'Virginia and Zach Wedding Aerial');
     iframe.setAttribute('frameborder', '0');
     iframe.setAttribute(
@@ -239,6 +240,20 @@ function initPortfolioLightbox() {
     if (index >= 0) openAt(index);
   };
 
+  const openDirectMedia = (href, title, type = 'video') => {
+    activeGallery = null;
+    links = [{
+      getAttribute(name) {
+        if (name === 'href') return href;
+        if (name === 'data-title') return title;
+        if (name === 'data-type') return type;
+        return '';
+      },
+      querySelector: () => null,
+    }];
+    openAt(0);
+  };
+
   document.querySelectorAll('.portfolio-item a[href]').forEach((link) => {
     link.addEventListener('click', (event) => {
       event.preventDefault();
@@ -250,9 +265,11 @@ function initPortfolioLightbox() {
   if (spotlightWatch) {
     spotlightWatch.addEventListener('click', (event) => {
       event.preventDefault();
-      const target = document.querySelector('[data-spotlight-video]');
-      if (!target) return;
-      openFromLink(target);
+      const href = spotlightWatch.getAttribute('href');
+      const title = spotlightWatch.getAttribute('data-title') || 'Folly Beach — Aerial Video';
+      if (href && href !== '#') {
+        openDirectMedia(href, title, 'video');
+      }
     });
   }
 

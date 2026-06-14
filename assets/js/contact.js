@@ -4,22 +4,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.faq-question').forEach((question) => {
     question.addEventListener('click', () => {
-      question.parentElement.classList.toggle('active');
-
-      const icon = question.querySelector('.faq-toggle i');
-      if (icon) {
-        if (question.parentElement.classList.contains('active')) {
-          icon.classList.replace('fa-plus', 'fa-minus');
-        } else {
-          icon.classList.replace('fa-minus', 'fa-plus');
-        }
-      }
-
+      const item = question.parentElement;
       const answer = question.nextElementSibling;
-      if (answer) {
-        answer.style.maxHeight = question.parentElement.classList.contains('active')
-          ? `${answer.scrollHeight}px`
-          : '0';
+      const icon = question.querySelector('.faq-toggle i');
+      const isOpening = !item.classList.contains('active');
+
+      document.querySelectorAll('.faq-item').forEach((otherItem) => {
+        otherItem.classList.remove('active');
+        const otherAnswer = otherItem.querySelector('.faq-answer');
+        if (otherAnswer) otherAnswer.style.maxHeight = '0';
+        const otherIcon = otherItem.querySelector('.faq-toggle i');
+        if (otherIcon) {
+          otherIcon.classList.remove('fa-minus');
+          otherIcon.classList.add('fa-plus');
+        }
+      });
+
+      if (isOpening) {
+        item.classList.add('active');
+        if (answer) answer.style.maxHeight = `${answer.scrollHeight}px`;
+        if (icon) {
+          icon.classList.remove('fa-plus');
+          icon.classList.add('fa-minus');
+        }
       }
     });
   });
@@ -68,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.setTimeout(() => {
       Swal.fire({
         title: 'Message Sent!',
-        text: "Thank you for reaching out. I'll get back to you as soon as possible from Richmond, VA.",
+        text: "Thank you for reaching out. We'll get back to you as soon as possible from Richmond, VA.",
         icon: 'success',
         confirmButtonText: 'Great!',
       });

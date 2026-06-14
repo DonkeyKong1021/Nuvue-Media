@@ -145,7 +145,8 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         const videoId = viewDemoBtn.dataset.youtubeId || "mwdwAVuXLNQ";
         const iframe = document.createElement("iframe");
-        iframe.src = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&autoplay=1`;
+        iframe.src = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&autoplay=1&origin=${encodeURIComponent(window.location.origin)}`;
+        iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
         iframe.setAttribute("title", "NuVue Media demo video");
         iframe.setAttribute("frameborder", "0");
         iframe.setAttribute(
@@ -177,26 +178,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-
-  // FAQ Accordion
-  const faqItems = document.querySelectorAll('.faq-item');
-  
-  faqItems.forEach(item => {
-    const question = item.querySelector('.faq-question');
-    if (!question) return;
-
-    question.addEventListener('click', () => {
-      // Close all other items
-      faqItems.forEach(otherItem => {
-        if (otherItem !== item) {
-          otherItem.classList.remove('active');
-        }
-      });
-      
-      // Toggle current item
-      item.classList.toggle('active');
-    });
-  });
 
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {

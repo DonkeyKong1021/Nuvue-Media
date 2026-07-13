@@ -202,11 +202,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Avoid reloading when already on the homepage
   const path = window.location.pathname.replace(/\/$/, "") || "/";
-  const onHome =
-    path === "/" ||
-    path.endsWith("/index.html") ||
-    !path.split("/").pop().includes(".");
-  document.querySelectorAll('a[href="/"], a[href="./"], a[href="index.html"]').forEach((link) => {
+  const onHome = path === "/" || path === "/index.html";
+  document.querySelectorAll('a[href="/"], a[href="./"]').forEach((link) => {
     link.addEventListener("click", (event) => {
       if (onHome) event.preventDefault();
     });

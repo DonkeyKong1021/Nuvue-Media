@@ -2,6 +2,8 @@
 
 Local-first CRM for NuVue Media: **website inquiry → lead → client → project → Pixieset delivery**.
 
+Full architecture, intake, deployment, and Streamlit→real-app roadmap: [`docs/CRM.md`](../docs/CRM.md).
+
 ## Stack
 
 - **FastAPI** — REST API + public lead intake

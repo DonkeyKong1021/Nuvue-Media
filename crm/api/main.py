@@ -34,6 +34,15 @@ app = FastAPI(title="NuVue CRM API", version="1.0.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.cors_origin_list,
+    # Local website previews: IPv6 localhost, Live Server, LAN IPs
+    allow_origin_regex=(
+        r"https?://("
+        r"localhost|127\.0\.0\.1|\[::1\]|"
+        r"192\.168\.\d{1,3}\.\d{1,3}|"
+        r"10\.\d{1,3}\.\d{1,3}\.\d{1,3}|"
+        r"172\.(1[6-9]|2\d|3[0-1])\.\d{1,3}\.\d{1,3}"
+        r")(:\d+)?"
+    ),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -99,7 +108,10 @@ def create_lead_public(payload: LeadCreate, db: Session = Depends(get_db)) -> Le
     db.add(lead)
     db.commit()
     db.refresh(lead)
-    _notify_web3forms(lead)
+    # Website form already emails via client-side Web3Forms (GitHub Pages).
+    # Only notify for other sources (e.g. manual CRM entry) to avoid duplicates.
+    if (lead.source or "") != "website":
+        _notify_web3forms(lead)
     return lead
 
 

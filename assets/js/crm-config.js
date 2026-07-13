@@ -1,10 +1,9 @@
 /**
  * CRM intake config for the website contact form.
  *
- * Local: leave crmApiUrl empty (or localhost) — used only on localhost/127.0.0.1.
- * Production: set PRODUCTION_CRM_API_URL to your deployed API origin (https://...).
- *            Loopback URLs are refused on public hostnames so intake cannot
- *            silently no-op against an unreachable localhost.
+ * Local (localhost / LAN / file): uses LOCAL_CRM_API_URL (default 127.0.0.1:8000).
+ * Production (public host): set PRODUCTION_CRM_API_URL to your deployed API origin.
+ * Loopback API URLs are refused on public hostnames so intake cannot silently no-op.
  */
 (function () {
   const LOCAL_DEFAULT = "http://127.0.0.1:8000";
@@ -15,14 +14,30 @@
   // Optional override for local testing against a non-default API origin.
   const LOCAL_CRM_API_URL = LOCAL_DEFAULT;
 
+  function isPrivateIpv4(hostname) {
+    const m = /^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/.exec(hostname);
+    if (!m) return false;
+    const a = Number(m[1]);
+    const b = Number(m[2]);
+    if (a === 10) return true;
+    if (a === 192 && b === 168) return true;
+    if (a === 172 && b >= 16 && b <= 31) return true;
+    return false;
+  }
+
   function isLocalHostname(hostname) {
-    return hostname === "localhost" || hostname === "127.0.0.1" || hostname === "";
+    const host = (hostname || "").replace(/^\[|\]$/g, "").toLowerCase();
+    if (!host || host === "localhost" || host === "127.0.0.1" || host === "::1") {
+      return true;
+    }
+    if (host.endsWith(".local")) return true;
+    return isPrivateIpv4(host);
   }
 
   function isLoopbackUrl(url) {
     try {
-      const { hostname } = new URL(url);
-      return hostname === "localhost" || hostname === "127.0.0.1";
+      const host = new URL(url).hostname.replace(/^\[|\]$/g, "").toLowerCase();
+      return host === "localhost" || host === "127.0.0.1" || host === "::1";
     } catch {
       return false;
     }
@@ -44,8 +59,10 @@
   }
 
   if (!enabled) {
-    console.warn(
-      "[NUVUE_CRM] Intake disabled: no CRM API URL configured for this host."
+    console.info(
+      "[NUVUE_CRM] Intake off for this host (" +
+        (window.location.hostname || "unknown") +
+        "). Email still works via Web3Forms; set PRODUCTION_CRM_API_URL when the API is deployed."
     );
   }
 

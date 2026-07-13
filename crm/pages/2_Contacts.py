@@ -1,7 +1,7 @@
 import streamlit as st
 
 from crm_client import LEAD_STATUSES, SERVICES, api_request
-from ui import apply_hubspot_theme, page_header, render_sidebar, status_pill
+from ui import apply_hubspot_theme, page_header, records_table, render_sidebar, status_pill
 
 st.set_page_config(page_title="Contacts | NuVue CRM", layout="wide")
 apply_hubspot_theme()
@@ -30,7 +30,7 @@ st.caption(f"{len(leads)} contact(s)")
 
 st.markdown('<div class="hs-panel"><h3>Contact list</h3>', unsafe_allow_html=True)
 if leads:
-    st.dataframe(
+    records_table(
         [
             {
                 "ID": lead["id"],
@@ -42,9 +42,7 @@ if leads:
                 "Created": lead["created_at"],
             }
             for lead in leads
-        ],
-        hide_index=True,
-        width="stretch",
+        ]
     )
 else:
     st.markdown(

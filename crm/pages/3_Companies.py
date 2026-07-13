@@ -1,7 +1,7 @@
 import streamlit as st
 
 from crm_client import api_request
-from ui import apply_hubspot_theme, page_header, render_sidebar, status_pill
+from ui import apply_hubspot_theme, page_header, records_table, render_sidebar, status_pill
 
 st.set_page_config(page_title="Companies | NuVue CRM", layout="wide")
 apply_hubspot_theme()
@@ -21,7 +21,7 @@ st.caption(f"{len(clients)} company(ies)")
 
 st.markdown('<div class="hs-panel"><h3>Company directory</h3>', unsafe_allow_html=True)
 if clients:
-    st.dataframe(
+    records_table(
         [
             {
                 "ID": client["id"],
@@ -32,9 +32,7 @@ if clients:
                 "Created": client["created_at"],
             }
             for client in clients
-        ],
-        hide_index=True,
-        width="stretch",
+        ]
     )
 else:
     st.markdown(

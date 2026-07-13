@@ -1,7 +1,7 @@
 import streamlit as st
 
 from crm_client import api_request
-from ui import apply_hubspot_theme, metric_cards, page_header, render_sidebar, status_pill
+from ui import apply_hubspot_theme, metric_cards, page_header, records_table, render_sidebar, status_pill
 
 st.set_page_config(page_title="Home | NuVue CRM", layout="wide")
 apply_hubspot_theme()
@@ -54,7 +54,7 @@ with right:
 st.markdown('<div class="hs-panel"><h3>Recent contacts</h3>', unsafe_allow_html=True)
 recent = leads[:5]
 if recent:
-    st.dataframe(
+    records_table(
         [
             {
                 "Name": lead["name"],
@@ -64,9 +64,7 @@ if recent:
                 "Created": lead["created_at"],
             }
             for lead in recent
-        ],
-        hide_index=True,
-        width="stretch",
+        ]
     )
 else:
     st.markdown('<div class="hs-empty">No contacts yet.</div>', unsafe_allow_html=True)
@@ -75,7 +73,7 @@ st.markdown("</div>", unsafe_allow_html=True)
 st.markdown('<div class="hs-panel"><h3>Recent deals</h3>', unsafe_allow_html=True)
 recent_deals = projects[:5]
 if recent_deals:
-    st.dataframe(
+    records_table(
         [
             {
                 "Deal": deal["title"],
@@ -84,9 +82,7 @@ if recent_deals:
                 "Shoot": deal.get("shoot_date") or "—",
             }
             for deal in recent_deals
-        ],
-        hide_index=True,
-        width="stretch",
+        ]
     )
 else:
     st.markdown('<div class="hs-empty">No deals yet.</div>', unsafe_allow_html=True)

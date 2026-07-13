@@ -216,6 +216,40 @@ html, body, [class*="css"] {
   padding: 0.5rem 0;
 }
 
+.hs-table-wrap {
+  overflow-x: auto;
+  margin: 0.25rem 0 0.5rem 0;
+}
+
+.hs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.hs-table th {
+  text-align: left;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--hs-muted);
+  font-weight: 650;
+  padding: 0.55rem 0.65rem;
+  border-bottom: 2px solid var(--hs-border);
+  white-space: nowrap;
+}
+
+.hs-table td {
+  padding: 0.55rem 0.65rem;
+  border-bottom: 1px solid #eaf0f6;
+  color: var(--hs-slate);
+  vertical-align: top;
+}
+
+.hs-table tr:hover td {
+  background: #f0f4f8;
+}
+
 div[data-testid="stMetric"] {
   background: var(--hs-card);
   border: 1px solid var(--hs-border);
@@ -286,7 +320,7 @@ def render_sidebar(show_connection: bool = True) -> None:
             st.session_state["crm_api_key"] = st.text_input(
                 "API Key", value=st.session_state["crm_api_key"], type="password"
             )
-            if st.button("Test connection", use_container_width=True):
+            if st.button("Test connection", width="stretch"):
                 try:
                     health = api_request("GET", "/health")
                     st.success(f"Connected: {health}")
@@ -331,3 +365,29 @@ def deal_card_html(title: str, client: str, service: str, shoot_date: str | None
       </div>
     </div>
     """
+
+
+def records_table(rows: list[dict]) -> None:
+    """Render tabular data without st.dataframe (avoids pandas/pyarrow SIGSEGV on py3.13/macOS)."""
+    if not rows:
+        st.markdown('<div class="hs-empty">No rows.</div>', unsafe_allow_html=True)
+        return
+
+    columns = list(rows[0].keys())
+    header = "".join(f"<th>{escape(str(col))}</th>" for col in columns)
+    body_parts: list[str] = []
+    for row in rows:
+        cells = "".join(f"<td>{escape(str(row.get(col, '') or '—'))}</td>" for col in columns)
+        body_parts.append(f"<tr>{cells}</tr>")
+
+    st.markdown(
+        f"""
+        <div class="hs-table-wrap">
+          <table class="hs-table">
+            <thead><tr>{header}</tr></thead>
+            <tbody>{''.join(body_parts)}</tbody>
+          </table>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )

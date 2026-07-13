@@ -116,8 +116,13 @@
                     <!-- Contact form -->
                     <div class="contact-form">
                         <h3>Send Us a Message</h3>
-                        <!-- Submits via assets/js/contact.js → CRM API (Web3Forms key stays server-side). -->
-                        <form id="contactForm" action="#" method="POST">
+                        <!-- Web3Forms access key is public-by-design for static hosts (GitHub Pages).
+                             Restrict the key to nuvueprod.com in the Web3Forms dashboard. -->
+                        <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                            <input type="hidden" name="access_key" value="9d5896ce-7dc3-4f7f-a105-811f70caac49">
+                            <input type="hidden" name="subject" value="New NuVue Media contact form message">
+                            <input type="hidden" name="from_name" value="NuVue Media Website">
+                            <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
                             <div class="form-group">
                                 <label for="name">Name</label>
                                 <input type="text" id="name" name="name" required placeholder="Your name">
@@ -262,7 +267,7 @@
     <script src="assets/js/headers.js?v=20260613b"></script>
     <script src="assets/js/legal-modals.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
-    <script src="assets/js/crm-config.js?v=20260712d"></script>
-    <script src="assets/js/contact.js?v=20260712d"></script>
+    <script src="assets/js/crm-config.js?v=20260712e"></script>
+    <script src="assets/js/contact.js?v=20260712f"></script>
 </body>
 </html> 

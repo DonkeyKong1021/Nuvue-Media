@@ -7,6 +7,7 @@ from ui import (
     apply_hubspot_theme,
     deal_card_html,
     page_header,
+    records_table,
     render_sidebar,
     status_pill,
 )
@@ -85,7 +86,7 @@ else:
 
     st.markdown('<div class="hs-panel"><h3>Deal list</h3>', unsafe_allow_html=True)
     if filtered:
-        st.dataframe(
+        records_table(
             [
                 {
                     "ID": project["id"],
@@ -97,9 +98,7 @@ else:
                     "Pixieset": project.get("pixieset_url") or "—",
                 }
                 for project in filtered
-            ],
-            hide_index=True,
-            width="stretch",
+            ]
         )
     else:
         st.markdown('<div class="hs-empty">No deals in this stage.</div>', unsafe_allow_html=True)

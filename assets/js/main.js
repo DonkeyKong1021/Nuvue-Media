@@ -201,13 +201,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Avoid reloading when already on the homepage
-  const currentPath = window.location.pathname.replace(/\/$/, "") || "/index.html";
-  document.querySelectorAll('a[href="index.html"], a[href="./"], a[href="/"]').forEach((link) => {
+  const path = window.location.pathname.replace(/\/$/, "") || "/";
+  const onHome =
+    path === "/" ||
+    path.endsWith("/index.html") ||
+    !path.split("/").pop().includes(".");
+  document.querySelectorAll('a[href="/"], a[href="./"], a[href="index.html"]').forEach((link) => {
     link.addEventListener("click", (event) => {
-      const onHome =
-        currentPath.endsWith("/index.html") ||
-        currentPath.endsWith("/") ||
-        !currentPath.split("/").pop().includes(".");
       if (onHome) event.preventDefault();
     });
   });

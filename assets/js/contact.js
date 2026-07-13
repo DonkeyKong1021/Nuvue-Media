@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const contactForm = document.getElementById('contactForm');
-  const submitBtn = document.getElementById('submitBtn');
+  const submitBtn = contactForm?.querySelector('button[type="submit"]');
 
   document.querySelectorAll('.faq-question').forEach((question) => {
     question.addEventListener('click', () => {
@@ -31,15 +31,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  if (!contactForm) return;
+  if (!contactForm || !submitBtn) return;
 
-  contactForm.addEventListener('submit', (event) => {
+  async function sendToCrm(payload) {
+    const config = window.NUVUE_CRM_CONFIG || {};
+    if (!config.enabled || !config.crmApiUrl) return;
+
+    const response = await fetch(`${config.crmApiUrl.replace(/\/$/, '')}/api/leads`, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) {
+      const detail = await response.text();
+      throw new Error(detail || `CRM intake failed (${response.status})`);
+    }
+  }
+
+  contactForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
     let isValid = true;
     const name = document.getElementById('name');
     const email = document.getElementById('email');
-    const subject = document.getElementById('subject');
+    const phone = document.getElementById('phone');
+    const service = document.getElementById('service');
     const message = document.getElementById('message');
 
     document.querySelectorAll('.error-message').forEach((el) => {
@@ -57,8 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
       isValid = false;
     }
 
-    if (!subject.value) {
-      document.getElementById('subject-error').textContent = 'Please select a subject';
+    if (!service.value) {
+      document.getElementById('service-error').textContent = 'Please select an interest';
       isValid = false;
     }
 
@@ -69,11 +89,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!isValid) return;
 
+    const originalLabel = submitBtn.textContent;
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending...';
 
-    window.setTimeout(() => {
-      Swal.fire({
+    const crmPayload = {
+      name: name.value.trim(),
+      email: email.value.trim(),
+      phone: phone?.value?.trim() || null,
+      service: service.value,
+      message: message.value.trim(),
+      source: 'website',
+    };
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { Accept: 'application/json' },
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok || result.success === false) {
+        throw new Error(result.message || 'Form submission failed');
+      }
+
+      try {
+        await sendToCrm(crmPayload);
+      } catch (crmError) {
+        console.warn('CRM intake failed (email still sent):', crmError);
+      }
+
+      await Swal.fire({
         title: 'Message Sent!',
         text: "Thank you for reaching out. We'll get back to you as soon as possible from Richmond, VA.",
         icon: 'success',
@@ -81,8 +129,16 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       contactForm.reset();
+    } catch (error) {
+      await Swal.fire({
+        title: 'Something went wrong',
+        text: 'Unable to send your message right now. Please try again or email nuvuetech@gmail.com.',
+        icon: 'error',
+        confirmButtonText: 'OK',
+      });
+    } finally {
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Send Message';
-    }, 1500);
+      submitBtn.textContent = originalLabel;
+    }
   });
 });

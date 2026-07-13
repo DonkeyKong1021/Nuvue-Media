@@ -4,6 +4,16 @@ node_modules/
 dist/
 .env
 .env.*
+!.env.example
+!crm/.env.example
+crm/.env
+crm/data/*.db
+crm/data/*.db-*
+crm/.venv/
+crm/__pycache__/
+crm/**/__pycache__/
+crm/.pytest_cache/
+crm/
 
 # GitHub rejects files over 100 MB; keep large demo videos local or use Git LFS / external hosting
 assets/videos/Real-Estate-Demo.mp4

@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const portalItem = document.createElement("li");
     portalItem.className = "nav-portal-link";
     const portalAnchor = document.createElement("a");
-    portalAnchor.href = headerContactLink.getAttribute("href") || "portal.html";
+    portalAnchor.href = headerContactLink.getAttribute("href") || "/portal/";
     portalAnchor.textContent =
       headerContactLink.getAttribute("aria-label") ||
       headerContactLink.dataset.fullLabel ||

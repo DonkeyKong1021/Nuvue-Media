@@ -35,7 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function sendToCrm(payload) {
     const config = window.NUVUE_CRM_CONFIG || {};
-    if (!config.enabled || !config.crmApiUrl) return;
+    if (!config.enabled || !config.crmApiUrl) {
+      throw new Error(
+        'CRM intake is not configured. Set PRODUCTION_CRM_API_URL in crm-config.js (or run the local API).'
+      );
+    }
 
     const response = await fetch(`${config.crmApiUrl.replace(/\/$/, '')}/api/leads`, {
       method: 'POST',
@@ -103,23 +107,9 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     try {
-      const response = await fetch(contactForm.action, {
-        method: 'POST',
-        body: new FormData(contactForm),
-        headers: { Accept: 'application/json' },
-      });
-
-      const result = await response.json().catch(() => ({}));
-
-      if (!response.ok || result.success === false) {
-        throw new Error(result.message || 'Form submission failed');
-      }
-
-      try {
-        await sendToCrm(crmPayload);
-      } catch (crmError) {
-        console.warn('CRM intake failed (email still sent):', crmError);
-      }
+      // CRM API stores the lead and sends email via Web3Forms server-side
+      // (access key never ships in client HTML/JS).
+      await sendToCrm(crmPayload);
 
       await Swal.fire({
         title: 'Message Sent!',
@@ -130,6 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       contactForm.reset();
     } catch (error) {
+      console.error('Contact form submission failed:', error);
       await Swal.fire({
         title: 'Something went wrong',
         text: 'Unable to send your message right now. Please try again or email nuvuetech@gmail.com.',

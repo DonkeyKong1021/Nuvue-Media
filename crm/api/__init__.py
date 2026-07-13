@@ -1,0 +1,1 @@
+"""NuVue CRM FastAPI package."""

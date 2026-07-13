@@ -5,15 +5,19 @@ dist/
 .env
 .env.*
 !.env.example
-!crm/.env.example
+
+# Local Cursor / agent skill links (may point at machine-specific paths)
+.agents/
+
+# CRM: track source; ignore secrets, venv, caches, and local DBs
 crm/.env
-crm/data/*.db
-crm/data/*.db-*
 crm/.venv/
 crm/__pycache__/
 crm/**/__pycache__/
 crm/.pytest_cache/
-crm/
+crm/data/*.db
+crm/data/*.db-*
+!crm/.env.example
 
 # GitHub rejects files over 100 MB; keep large demo videos local or use Git LFS / external hosting
 assets/videos/Real-Estate-Demo.mp4

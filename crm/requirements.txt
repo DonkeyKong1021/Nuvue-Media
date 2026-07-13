@@ -1,0 +1,15 @@
+fastapi>=0.115.0
+# Avoid uvicorn[standard] — it pulls uvloop, which segfaults Streamlit's
+# embedded server on macOS + Python 3.13 (SIGSEGV in uvasync_callback).
+uvicorn>=0.32.0
+httptools>=0.6.0
+watchfiles>=0.24.0
+websockets>=14.0
+sqlalchemy>=2.0.36
+pydantic>=2.10.0
+pydantic-settings>=2.6.0
+email-validator>=2.2.0
+python-multipart>=0.0.17
+streamlit>=1.40.0
+httpx>=0.28.0
+python-dateutil>=2.9.0
